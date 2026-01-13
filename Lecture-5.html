@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lecture 5 - Probability</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <header>
+        <h1>🎲 Probability</h1>
+        <!-- <p>Understanding Uncertainty and Likelihood in Statistics</p> -->
+    </header>
+
+    <nav>
+        <a href="./Lecture-5.html">Probability (5)</a>
+        <a href="./Lecture-6_7.html">Discrete Random Variables (6,7)</a>
+        <!-- <a href="./Lecture-8_part1.html">Hypothesis Testing (8)</a> -->
+        <a href="./Lecture-8_part2.html">Normal Distribution (8)</a>
+        <!-- <a href="./Lecture-9.html">Regression Analysis (9)</a> -->
+        <a href="./Exam-5-9.html">Exams</a>
+        <a href="./cheat_sheet.html">Cheat Sheet</a>
+        <a href="./Revision.html">Revision</a>
+    </nav>
+
+    <div class="container">
+        <main>
+            <!-- INTRODUCTION -->
+            <section>
+                <h2>📌 Introduction to Probability</h2>
+                
+                <h3>What is Probability?</h3>
+                <p><strong>Probability</strong> is simply a way to measure <strong>how likely something is to happen</strong>. Think of it as answering the question: <em>"What are the chances?"</em></p>
+
+                <div class="definition-box">
+                    <h4>Key Points</h4>
+                    <ul>
+                        <li>Probability is measured between <strong>0 and 1</strong> (or 0% to 100%)</li>
+                        <li><strong>0</strong> means impossible (will never happen)</li>
+                        <li><strong>1</strong> means certain (will definitely happen)</li>
+                        <li><strong>0.5</strong> means 50-50 chance (equally likely to happen or not)</li>
+                    </ul>
+                </div>
+
+                <div class="example-box">
+                    <h4>Real-Life Examples</h4>
+                    <ul>
+                        <li>Probability of the sun rising tomorrow = 1 (certain)</li>
+                        <li>Probability of rolling a 7 on a regular die = 0 (impossible)</li>
+                        <li>Probability of a fair coin landing on heads = 0.5 (50%)</li>
+                    </ul>
+                </div>
+
+                <h3>Basic Probability Formula</h3>
+                <p>For <strong>equally likely outcomes</strong>:</p>
+                <div class="formula">
+                    P(A) = Number of favorable outcomes / Total number of possible outcomes<br>
+                    P(A) = m/n
+                </div>
+
+                <div class="example-box">
+                    <h4>Example 1: Rolling a Die</h4>
+                    <p>What's the probability of getting an odd number?</p>
+                    <ul>
+                        <li>Sample Space: S = {1, 2, 3, 4, 5, 6} → n = 6</li>
+                        <li>Odd numbers: A = {1, 3, 5} → m = 3</li>
+                        <li>P(A) = 3/6 = 0.5 or 50%</li>
+                    </ul>
+                </div>
+
+                <div class="example-box">
+                    <h4>Example 2: Drawing from a Box</h4>
+                    <p>Box contains: 6 red balls and 4 white balls. What's the probability of drawing a red ball?</p>
+                    <ul>
+                        <li>Total balls: n = 10</li>
+                        <li>Red balls: m = 6</li>
+                        <li>P(Red) = 6/10 = 0.6 or 60%</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- BASIC CONCEPTS -->
+            <section>
+                <h2>🔬 Basic Probability Concepts</h2>
+
+                <h3>1. Experiment</h3>
+                <div class="definition-box">
+                    <h4>Definition</h4>
+                    <p>An <strong>experiment</strong> is any action or process that produces a result.</p>
+                </div>
+                <div class="example-box">
+                    <h4>Examples:</h4>
+                    <ul>
+                        <li>Tossing a coin</li>
+                        <li>Rolling a die</li>
+                        <li>Drawing a card from a deck</li>
+                        <li>Picking a ball from a box</li>
+                        <li>Measuring temperature</li>
+                    </ul>
+                </div>
+
+                <h3>2. Sample Space (S)</h3>
+                <div class="definition-box">
+                    <h4>Definition</h4>
+                    <p>The <strong>sample space</strong> is the set of <strong>all possible outcomes</strong> of an experiment.</p>
+                </div>
+                <div class="example-box">
+                    <h4>Examples:</h4>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Experiment</th>
+                                <th>Sample Space</th>
+                                <th>Number of Outcomes</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Toss a coin</td>
+                                <td>S = {Heads, Tails}</td>
+                                <td>2</td>
+                            </tr>
+                            <tr>
+                                <td>Roll a die</td>
+                                <td>S = {1, 2, 3, 4, 5, 6}</td>
+                                <td>6</td>
+                            </tr>
+                            <tr>
+                                <td>Pick a card suit</td>
+                                <td>S = {Hearts, Diamonds, Clubs, Spades}</td>
+                                <td>4</td>
+                            </tr>
+                            <tr>
+                                <td>Draw from box (6 red, 4 white)</td>
+                                <td>S = {Red, White}</td>
+                                <td>2</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3>3. Event (A)</h3>
+                <div class="definition-box">
+                    <h4>Definition</h4>
+                    <p>An <strong>event</strong> is a specific outcome or collection of outcomes we're interested in. A subset of the sample space.</p>
+                </div>
+                <div class="example-box">
+                    <h4>Examples:</h4>
+                    <ul>
+                        <li><strong>Experiment:</strong> Roll a die</li>
+                        <li><strong>Sample Space:</strong> S = {1, 2, 3, 4, 5, 6}</li>
+                        <li><strong>Event A:</strong> "Getting an even number" = {2, 4, 6}</li>
+                        <li><strong>Event B:</strong> "Getting a number greater than 4" = {5, 6}</li>
+                    </ul>
+                </div>
+
+                <h3>4. Complement of an Event (A')</h3>
+                <div class="definition-box">
+                    <h4>Definition</h4>
+                    <p>All elements in the sample space that are <strong>NOT in event A</strong>.</p>
+                    <p><strong>Formula:</strong> P(A') = 1 - P(A)</p>
+                </div>
+                <div class="example-box">
+                    <h4>Example:</h4>
+                    <ul>
+                        <li>P(getting a 6 on die) = 1/6</li>
+                        <li>P(NOT getting a 6) = 1 - 1/6 = 5/6</li>
+                    </ul>
+                </div>
+
+                <h3>5. Intersection (A ∩ B) - "AND"</h3>
+                <div class="definition-box">
+                    <h4>Definition</h4>
+                    <p>All elements that are in <strong>BOTH A and B</strong>.</p>
+                </div>
+                <div class="example-box">
+                    <h4>Example:</h4>
+                    <p>Drawing a card that is both a Heart AND a King: A ∩ B = {King of Hearts}</p>
+                </div>
+
+                <h3>6. Union (A ∪ B) - "OR"</h3>
+                <div class="definition-box">
+                    <h4>Definition</h4>
+                    <p>All elements that are in <strong>A OR B OR both</strong>.</p>
+                </div>
+                <div class="example-box">
+                    <h4>Example:</h4>
+                    <p>Drawing a card that is either a Heart OR a King (includes King of Hearts)</p>
+                </div>
+
+                <h3>7. Mutually Exclusive Events</h3>
+                <div class="definition-box">
+                    <h4>Definition</h4>
+                    <p>Events that <strong>cannot occur together</strong>. Their intersection is empty: A ∩ B = ∅</p>
+                </div>
+                <div class="example-box">
+                    <h4>Example:</h4>
+                    <p>Getting Heads and Tails on a single coin toss are mutually exclusive.</p>
+                </div>
+            </section>
+
+            <!-- TYPES OF PROBABILITY -->
+            <section>
+                <h2>🎯 Types of Probability</h2>
+
+                <h3>1. Classical (Objective) Probability</h3>
+                <div class="definition-box">
+                    <h4>When to use:</h4>
+                    <p>When all outcomes are <strong>equally likely</strong>.</p>
+                    <h4>Characteristics:</h4>
+                    <ul>
+                        <li>Based on the nature of the experiment</li>
+                        <li>Same for all observers</li>
+                        <li>No personal opinion involved</li>
+                    </ul>
+                    <p><strong>Formula:</strong> P(A) = Number of favorable outcomes / Total number of possible outcomes</p>
+                </div>
+
+                <div class="example-box">
+                    <h4>Examples:</h4>
+                    <ul>
+                        <li>Tossing a fair coin: P(Heads) = 1/2</li>
+                        <li>Rolling a balanced die: P(getting 4) = 1/6</li>
+                        <li>Drawing a card: P(Ace) = 4/52 = 1/13</li>
+                    </ul>
+                </div>
+
+                <div class="example-box">
+                    <h4>Example in Detail: Playing Cards</h4>
+                    <p>Total cards in deck: 52<br>
+                    Number of 7s: 4 (one in each suit)<br>
+                    P(drawing a 7) = 4/52 = 1/13 ≈ 0.077 or 7.7%</p>
+                </div>
+
+                <h3>2. Empirical (Experimental) Probability</h3>
+                <div class="definition-box">
+                    <h4>When to use:</h4>
+                    <p>Based on <strong>actual experiments or observations</strong>.</p>
+                    <p><strong>Formula:</strong> P(A) = Number of times A occurred / Total number of experiments</p>
+                </div>
+
+                <div class="example-box">
+                    <h4>Example 1: Student Grades</h4>
+                    <p>A sample of 200 students took an exam. 10 students got "Excellent" grade.<br>
+                    P(Excellent) = 10/200 = 0.05 or 5%</p>
+                </div>
+
+                <div class="example-box">
+                    <h4>Example 2: Birth Records</h4>
+                    <p>In a city, 10,000 babies were born in a year. 5,050 were boys.<br>
+                    P(Boy) = 5,050/10,000 = 0.505 or 50.5%</p>
+                </div>
+
+                <h3>3. Subjective Probability</h3>
+                <div class="definition-box">
+                    <h4>When to use:</h4>
+                    <p>Based on <strong>personal belief, experience, or judgment</strong>.</p>
+                    <h4>Characteristics:</h4>
+                    <ul>
+                        <li>Different for different people</li>
+                        <li>Based on available information</li>
+                        <li>Depends on personal circumstances</li>
+                    </ul>
+                </div>
+
+                <div class="example-box">
+                    <h4>Examples:</h4>
+                    <ul>
+                        <li>"I'll attend class tomorrow with 60% probability"
+                            <ul>
+                                <li>Based on: personal schedule, weather forecast, health, etc.</li>
+                            </ul>
+                        </li>
+                        <li>"My team has 70% chance of winning"
+                            <ul>
+                                <li>Based on: past performance, current form, opponent strength</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+                <h3>Difference Between Classical and Empirical Probability</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Aspect</th>
+                            <th>Classical Probability</th>
+                            <th>Empirical Probability</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>When Calculated</strong></td>
+                            <td>Before conducting experiment</td>
+                            <td>After conducting experiment</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Based On</strong></td>
+                            <td>Theory and nature of experiment</td>
+                            <td>Actual observed data</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Method</strong></td>
+                            <td>Logical reasoning</td>
+                            <td>Repeated trials</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Example</strong></td>
+                            <td>P(Heads) = 0.5 for fair coin</td>
+                            <td>Flip coin 1000 times, count heads</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- BASIC RULES OF PROBABILITY -->
+            <section>
+                <h2>⚙️ Basic Rules of Probability</h2>
+
+                <h3>Rule 1: Range of Probability</h3>
+                <div class="formula">
+                    0 ≤ P(A) ≤ 1
+                </div>
+                <p>Probability is always between 0 and 1 (inclusive).</p>
+
+                <h3>Rule 2: Complement Rule</h3>
+                <div class="formula">
+                    P(A) + P(A') = 1<br>
+                    or P(A') = 1 - P(A)
+                </div>
+                <div class="example-box">
+                    <h4>Example:</h4>
+                    <p>If P(Rain) = 0.3, then P(No Rain) = 1 - 0.3 = 0.7</p>
+                </div>
+
+                <h3>Rule 3: Addition Rule (Union) - "OR"</h3>
+                <div class="formula">
+                    P(A ∪ B) = P(A) + P(B) - P(A ∩ B)
+                </div>
+                <div class="note-box">
+                    <h4>Why subtract P(A ∩ B)?</h4>
+                    <p>Because when we add P(A) and P(B), we count the intersection twice. We must subtract it once to avoid double-counting.</p>
+                </div>
+                <div class="example-box">
+                    <h4>Example: Drawing a Card</h4>
+                    <ul>
+                        <li>Event A: Drawing a Heart (13 cards) → P(A) = 13/52</li>
+                        <li>Event B: Drawing an Ace (4 cards) → P(B) = 4/52</li>
+                        <li>A ∩ B: Ace of Hearts (1 card) → P(A ∩ B) = 1/52</li>
+                        <li>P(Heart OR Ace) = 13/52 + 4/52 - 1/52 = 16/52 = 4/13</li>
+                    </ul>
+                </div>
+
+                <h3>Rule 4: Addition Rule for Mutually Exclusive Events</h3>
+                <div class="formula">
+                    P(A ∪ B) = P(A) + P(B)
+                </div>
+                <p>When events cannot occur together, we simply add their probabilities.</p>
+                <div class="example-box">
+                    <h4>Example:</h4>
+                    <p>Rolling a die and getting either a 2 or a 5:</p>
+                    <ul>
+                        <li>P(2) = 1/6</li>
+                        <li>P(5) = 1/6</li>
+                        <li>P(2 or 5) = 1/6 + 1/6 = 2/6 = 1/3</li>
+                    </ul>
+                </div>
+
+                <h3>Rule 5: Intersection (AND)</h3>
+                <div class="formula">
+                    P(A ∩ B) = P(A) × P(B|A)
+                </div>
+                <p>We'll explain P(B|A) in the Conditional Probability section!</p>
+            </section>
+
+            <!-- CONDITIONAL PROBABILITY -->
+            <section>
+                <h2>🔗 Conditional Probability</h2>
+
+                <div class="definition-box">
+                    <h4>Definition</h4>
+                    <p><strong>Conditional probability</strong> is the probability of event A occurring <strong>given that event B has already occurred</strong>.</p>
+                    <p><strong>Notation:</strong> P(A|B) - "Probability of A given B"</p>
+                    <p><strong>Formula:</strong> P(A|B) = P(A ∩ B) / P(B) [when P(B) > 0]</p>
+                </div>
+
+                <div class="note-box">
+                    <h4>What it means:</h4>
+                    <p>"What's the probability of A, if we know B already happened?"</p>
+                    <p><strong>The condition changes what we consider possible!</strong></p>
+                    <ul>
+                        <li>Unconditional: All 52 cards possible</li>
+                        <li>Conditional on Ace: Only 4 cards possible (the 4 Aces)</li>
+                    </ul>
+                </div>
+
+                <div class="example-box">
+                    <h4>Example 1: Company Projects</h4>
+                    <p>A company has 100 projects:</p>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Type</th>
+                                <th>IBM</th>
+                                <th>AT&T</th>
+                                <th>Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Telecom</td>
+                                <td>10</td>
+                                <td>40</td>
+                                <td>50</td>
+                            </tr>
+                            <tr>
+                                <td>Computers</td>
+                                <td>30</td>
+                                <td>20</td>
+                                <td>50</td>
+                            </tr>
+                            <tr>
+                                <td>Total</td>
+                                <td>40</td>
+                                <td>60</td>
+                                <td>100</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p><strong>Question:</strong> If we know a project is Telecommunications, what's the probability it's done by IBM?</p>
+                    <p><strong>Solution:</strong></p>
+                    <ul>
+                        <li>Event T: Project is Telecommunications → P(T) = 50/100 = 0.50</li>
+                        <li>Event I: Project is done by IBM → P(I ∩ T) = 10/100 = 0.10</li>
+                        <li>P(I|T) = P(I ∩ T) / P(T) = 0.10 / 0.50 = 0.20 or 20%</li>
+                    </ul>
+                    <p><strong>Interpretation:</strong> Of all telecom projects, 20% are done by IBM.</p>
+                </div>
+
+                <div class="example-box">
+                    <h4>Example 2: Drawing Cards</h4>
+                    <p><strong>Question:</strong> You draw a card and it's an Ace. What's the probability it's a Heart?</p>
+                    <p><strong>Solution:</strong></p>
+                    <ul>
+                        <li>Event A: Card is an Ace → P(A) = 4/52</li>
+                        <li>Event H: Card is a Heart → P(H ∩ A) = 1/52 (Ace of Hearts)</li>
+                        <li>P(H|A) = (1/52) / (4/52) = 1/4 = 0.25 or 25%</li>
+                    </ul>
+                    <p><strong>Makes sense!</strong> Since there are 4 Aces and only 1 is a Heart, it's 1 out of 4.</p>
+                </div>
+            </section>
+
+            <!-- INDEPENDENT VS DEPENDENT EVENTS - COMPREHENSIVE SECTION -->
+            <section>
+                <h2>🔀 Independent vs Dependent Events - COMPLETE GUIDE</h2>
+
+                <div class="important-box">
+                    <h4>⚠️ THE KEY QUESTION TO ASK:</h4>
+                    <p><strong>"Does the first event happening change the probability of the second event?"</strong></p>
+                    <ul>
+                        <li>If <strong>NO</strong> → INDEPENDENT</li>
+                        <li>If <strong>YES</strong> → DEPENDENT</li>
+                    </ul>
+                </div>
+
+                <!-- INDEPENDENT EVENTS SECTION -->
+                <h3>🟢 INDEPENDENT EVENTS - First Event Does NOT Affect Second</h3>
+
+                <div class="definition-box">
+                    <h4>Definition</h4>
+                    <p>Two events are <strong>INDEPENDENT</strong> if the occurrence of one does <strong>NOT affect</strong> the probability of the other.</p>
+                    <p><strong>The first event has NO EFFECT on the second event.</strong></p>
+                </div>
+
+                <h3>Mathematical Test for Independence:</h3>
+                <div class="formula">
+                    Events A and B are independent if:<br>
+                    P(A|B) = P(A)  AND  P(B|A) = P(B)<br>
+                    OR equivalently:<br>
+                    P(A ∩ B) = P(A) × P(B)
+                </div>
+
+                <h3>📌 INDEPENDENT EXAMPLES:</h3>
+
+                <div class="example-box">
+                    <h4>Example 1: Coin and Die (Independent)</h4>
+                    <ul>
+                        <li>Event A: Coin lands Heads → P(A) = 1/2</li>
+                        <li>Event B: Die shows 6 → P(B) = 1/6</li>
+                        <li>P(A ∩ B) = P(A) × P(B) = 1/2 × 1/6 = 1/12</li>
+                        <li><strong>YES! Independent:</strong> The coin result doesn't affect the die, and vice versa.</li>
+                    </ul>
+                </div>
+
+                <div class="example-box">
+                    <h4>Example 2: Testing Independence - Hearts and Aces</h4>
+                    <p><strong>Question:</strong> Are "drawing a Heart" and "drawing an Ace" independent?</p>
+                    <ul>
+                        <li>P(H) = 13/52 = 1/4</li>
+                        <li>P(A) = 4/52 = 1/13</li>
+                        <li>P(H ∩ A) = 1/52</li>
+                        <li>Test: Does P(H ∩ A) = P(H) × P(A)?</li>
+                        <li>1/52 = 1/4 × 1/13 = 1/52 ✓</li>
+                        <li><strong>YES! They are independent.</strong></li>
+                    </ul>
+                    <p><strong>Another way to verify:</strong><br>
+                    P(H|A) = 1/4 and P(H) = 1/4 → Since P(H|A) = P(H), they are independent!</p>
+                </div>
+
+                <div class="example-box">
+                    <h4>Example 3: Tossing a Coin Twice</h4>
+                    <p><strong>Independent!</strong> First toss doesn't affect second.</p>
+                </div>
+
+                <div class="example-box">
+                    <h4>Example 4: Drawing Cards WITH Replacement</h4>
+                    <p><strong>Independent!</strong> First card is put back, deck is unchanged.</p>
+                </div>
+
+                <!-- DEPENDENT EVENTS SECTION -->
+                <h3>🔴 DEPENDENT EVENTS - First Event DOES Affect Second</h3>
+
+                <div class="definition-box">
+                    <h4>Definition</h4>
+                    <p>Two events are <strong>DEPENDENT</strong> if the occurrence of one <strong>DOES affect</strong> the probability of the other.</p>
+                </div>
+
+                <h3>Mathematical Test for Dependence:</h3>
+                <div class="formula">
+                    Events A and B are dependent if:<br>
+                    P(A|B) ≠ P(A)  OR  P(B|A) ≠ P(B)<br>
+                    OR equivalently:<br>
+                    P(A ∩ B) ≠ P(A) × P(B)
+                </div>
+
+                <h3>📌 DEPENDENT EXAMPLES:</h3>
+
+                <div class="example-box">
+                    <h4>Example 1: Drawing Cards WITHOUT Replacement</h4>
+                    <p><strong>Scenario:</strong> Draw 2 cards from a deck <strong>without replacing the first</strong>.</p>
+                    <ul>
+                        <li>Event A: First card is an Ace → P(A) = 4/52</li>
+                        <li>Event B: Second card is an Ace</li>
+                        <li>If A happened (first is Ace): P(B|A) = 3/51 (only 3 Aces left in 51 cards)</li>
+                        <li>If A didn't happen (first not Ace): P(B|A') = 4/51 (still 4 Aces in 51 cards)</li>
+                        <li><strong>The first draw changes the second!</strong> This is <strong>dependence</strong>.</li>
+                    </ul>
+                </div>
+
+                <div class="example-box">
+                    <h4>Example 2: Company Projects (Dependent)</h4>
+                    <p><strong>Test:</strong> Are "Telecom" and "IBM" independent?</p>
+                    <ul>
+                        <li>P(Telecom) = 50/100 = 0.50</li>
+                        <li>P(IBM) = 40/100 = 0.40</li>
+                        <li>P(Telecom ∩ IBM) = 10/100 = 0.10</li>
+                        <li>P(Telecom) × P(IBM) = 0.50 × 0.40 = 0.20</li>
+                        <li>0.20 ≠ 0.10 ✗ <strong>NOT independent! They are DEPENDENT.</strong></li>
+                    </ul>
+                    <p>Also: P(IBM|Telecom) = 0.20 ≠ P(IBM) = 0.40<br>
+                    <strong>Knowing it's Telecom CHANGES the probability of IBM!</strong></p>
+                </div>
+
+                <div class="example-box">
+                    <h4>Example 3: Drawing Cards WITHOUT Replacement</h4>
+                    <p><strong>Dependent!</strong> First draw affects what's left.</p>
+                </div>
+
+                <div class="example-box">
+                    <h4>Example 4: Rain Today and Rain Tomorrow</h4>
+                    <p><strong>Dependent!</strong> Weather patterns are correlated.</p>
+                </div>
+
+                <div class="example-box">
+                    <h4>Example 5: Height and Shoe Size</h4>
+                    <p><strong>Dependent!</strong> Taller people tend to have bigger feet.</p>
+                </div>
+
+                <!-- COMPARISON TABLE -->
+                <h3>📊 QUICK COMPARISON TABLE</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Aspect</th>
+                            <th>INDEPENDENT</th>
+                            <th>DEPENDENT</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>One affects the other?</strong></td>
+                            <td>NO</td>
+                            <td>YES</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Formula</strong></td>
+                            <td>P(A∩B) = P(A)×P(B)</td>
+                            <td>P(A∩B) = P(A)×P(B|A)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Conditional</strong></td>
+                            <td>P(A|B) = P(A)</td>
+                            <td>P(A|B) ≠ P(A)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Examples</strong></td>
+                            <td>Coin tosses, separate dice, WITH replacement</td>
+                            <td>Cards without replacement, related events</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <!-- DECISION FLOWCHART -->
+                <h3>🎯 HOW TO DECIDE: INDEPENDENT OR DEPENDENT?</h3>
+
+                <div class="important-box">
+                    <h4>STEP-BY-STEP DECISION PROCESS:</h4>
+                    <ol>
+                        <li><strong>Ask:</strong> "Is something removed or changed after the first event?"
+                            <ul>
+                                <li>If NO → INDEPENDENT</li>
+                                <li>If YES → DEPENDENT</li>
+                            </ul>
+                        </li>
+                        <li><strong>Ask:</strong> "Does the first event change what's available for the second?"
+                            <ul>
+                                <li>If NO → INDEPENDENT</li>
+                                <li>If YES → DEPENDENT</li>
+                            </ul>
+                        </li>
+                        <li><strong>Ask:</strong> "Would knowing the first result change my prediction for the second?"
+                            <ul>
+                                <li>If NO → INDEPENDENT</li>
+                                <li>If YES → DEPENDENT</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+
+                <!-- REAL-WORLD EXAMPLES -->
+                <h3>🌍 REAL-WORLD EXAMPLES</h3>
+
+                <div class="example-box">
+                    <h4>Scenario 1: Weather</h4>
+                    <ul>
+                        <li><strong>Event A:</strong> It rains today</li>
+                        <li><strong>Event B:</strong> It rained yesterday</li>
+                        <li><strong>Are they independent?</strong> DEPENDENT!</li>
+                        <li>If it rained yesterday, weather patterns suggest it might rain today</li>
+                    </ul>
+                </div>
+
+                <div class="example-box">
+                    <h4>Scenario 2: Lottery Tickets</h4>
+                    <ul>
+                        <li><strong>Event A:</strong> Your ticket wins</li>
+                        <li><strong>Event B:</strong> Your friend's ticket wins</li>
+                        <li><strong>Are they independent?</strong> INDEPENDENT!</li>
+                        <li>Your friend winning doesn't affect your chances</li>
+                    </ul>
+                </div>
+
+                <div class="example-box">
+                    <h4>Scenario 3: Job Interviews</h4>
+                    <ul>
+                        <li><strong>Event A:</strong> You get the job</li>
+                        <li><strong>Event B:</strong> You pass the first interview</li>
+                        <li><strong>Are they dependent?</strong> DEPENDENT!</li>
+                        <li>Passing the first interview increases your chances of getting the job</li>
+                    </ul>
+                </div>
+
+                <div class="example-box">
+                    <h4>Scenario 4: Flipping Coins</h4>
+                    <ul>
+                        <li><strong>Event A:</strong> 2nd flip is Heads</li>
+                        <li><strong>Event B:</strong> 1st flip is Tails</li>
+                        <li><strong>Are they independent?</strong> INDEPENDENT!</li>
+                        <li>The first flip being Tails doesn't affect the second flip</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- COMBINATORICS -->
+            <section>
+                <h2>🔢 Combinatorial Concepts</h2>
+
+                <h3>Permutation</h3>
+                <div class="definition-box">
+                    <h4>Definition</h4>
+                    <p>The number of ways to arrange n objects where <strong>order matters</strong>.</p>
+                    <p><strong>Formula:</strong> P(n,r) = n! / (n-r)!</p>
+                </div>
+
+                <div class="example-box">
+                    <h4>Example</h4>
+                    <p>How many ways can 3 people be arranged in a line?</p>
+                    <ul>
+                        <li>P(3,3) = 3! = 3 × 2 × 1 = 6 ways</li>
+                    </ul>
+                </div>
+
+                <h3>Combination</h3>
+                <div class="definition-box">
+                    <h4>Definition</h4>
+                    <p>The number of ways to choose n objects where <strong>order does NOT matter</strong>.</p>
+                    <p><strong>Formula:</strong> C(n,r) = n! / (r!(n-r)!)</p>
+                </div>
+
+                <div class="example-box">
+                    <h4>Example</h4>
+                    <p>How many ways can 3 people be chosen from 5?</p>
+                    <ul>
+                        <li>C(5,3) = 5! / (3! × 2!) = 120 / (6 × 2) = 10 ways</li>
+                    </ul>
+                </div>
+
+                <h3>When to Use Each</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Concept</th>
+                            <th>Order Matters?</th>
+                            <th>Use</th>
+                            <th>Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Permutation</strong></td>
+                            <td>YES</td>
+                            <td>Arrangements, sequences</td>
+                            <td>Race positions (1st, 2nd, 3rd)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Combination</strong></td>
+                            <td>NO</td>
+                            <td>Selections, groups</td>
+                            <td>Choosing team members</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- JOINT PROBABILITY TABLE -->
+            <section>
+                <h2>📊 Joint Probability Table</h2>
+
+                <div class="definition-box">
+                    <h4>Definition</h4>
+                    <p>A table showing probabilities for combinations of two events. Similar to a contingency table but with probabilities instead of frequencies.</p>
+                </div>
+
+                <div class="example-box">
+                    <h4>Example: Currency Exchange</h4>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Exchange Rate</th>
+                                <th>High</th>
+                                <th>Medium</th>
+                                <th>Low</th>
+                                <th>Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Appreciates</strong></td>
+                                <td>0.21</td>
+                                <td>0.20</td>
+                                <td>0.04</td>
+                                <td>0.45</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Depreciates</strong></td>
+                                <td>0.09</td>
+                                <td>0.30</td>
+                                <td>0.16</td>
+                                <td>0.55</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Total</strong></td>
+                                <td>0.30</td>
+                                <td>0.50</td>
+                                <td>0.20</td>
+                                <td>1.00</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p><strong>Marginal Probabilities:</strong> Row and column totals</p>
+                    <ul>
+                        <li>P(Appreciates) = 0.45</li>
+                        <li>P(High) = 0.30</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- SUMMARY -->
+            <section>
+                <h2>✅ Key Takeaways</h2>
+                <ul>
+                    <li>Probability measures uncertainty on a scale from 0 to 1</li>
+                    <li>Three types: Classical (objective), Empirical (experimental), and Subjective</li>
+                    <li>Sample space contains all possible outcomes; events are subsets</li>
+                    <li>Complement rule: P(A') = 1 - P(A)</li>
+                    <li>Addition rule accounts for overlap: P(A ∪ B) = P(A) + P(B) - P(A ∩ B)</li>
+                    <li>Conditional probability: P(A|B) = P(A ∩ B) / P(B)</li>
+                    <li>Independent events: P(A ∩ B) = P(A) × P(B)</li>
+                    <li>Dependent events: P(A ∩ B) = P(A) × P(B|A)</li>
+                    <li>Permutations for arrangements (order matters); Combinations for selections (order doesn't matter)</li>
+                    <li>Joint probability tables show probabilities for event combinations</li>
+                </ul>
+            </section>
+        </main>
+    </div>
+
+    <footer>
+        <p>Faculty of Graduate Studies for Statistical Research, Cairo University</p>
+    </footer>
+</body>
+</html>

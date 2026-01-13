@@ -1,0 +1,1359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lecture 6 & 7 - Discrete Random Variables</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <header>
+        <h1>📊 Discrete Random Variables & Distributions</h1>
+        <!-- <p>Understanding Probability Distributions for Discrete Data</p> -->
+    </header>
+
+    <nav>
+        <a href="./Lecture-5.html">Probability (5)</a>
+        <a href="./Lecture-6_7.html">Discrete Random Variables (6,7)</a>
+        <!-- <a href="./Lecture-8_part1.html">Hypothesis Testing (8)</a> -->
+        <a href="./Lecture-8_part2.html">Normal Distribution (8)</a>
+        <!-- <a href="./Lecture-9.html">Regression Analysis (9)</a> -->
+        <a href="./Exam-5-9.html">Exams</a>
+        <a href="./cheat_sheet.html">Cheat Sheet</a>
+        <a href="./Revision.html">Revision</a>
+    </nav>
+
+    <div class="container">
+        <main>
+            <!-- INTRODUCTION -->
+            <section>
+                <h2>📌 Random Variables</h2>
+                
+                <div class="definition-box">
+                    <h4>What is a Random Variable?</h4>
+                    <p>A <strong>random variable</strong> is a function that assigns a single numeric value to each outcome in a sample space. It converts experimental outcomes into numbers.</p>
+                </div>
+
+                <div class="example-box">
+                    <h4>Example: Four Births</h4>
+                    <p>Consider 4 sequential births. Let X = number of girls.</p>
+                    <ul>
+                        <li>BBBB → X = 0</li>
+                        <li>BBBG, BBGB, BGBB, GBBB → X = 1</li>
+                        <li>BBGG, BGBG, BGGB, GBGB, GBBG, GGBB → X = 2</li>
+                        <li>BGGG, GBGG, GGBG, GGGB → X = 3</li>
+                        <li>GGGG → X = 4</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- DISCRETE VS CONTINUOUS -->
+            <section>
+                <h2>🔀 Discrete vs Continuous Random Variables</h2>
+
+                <h3>Discrete Random Variables</h3>
+                <div class="definition-box">
+                    <h4>Characteristics</h4>
+                    <ul>
+                        <li>Has a countable number of possible values</li>
+                        <li>Has discrete jumps (gaps) between successive values</li>
+                        <li>Has measurable probability for each individual value</li>
+                        <li><strong>Counts things</strong></li>
+                    </ul>
+                </div>
+
+                <div class="example-box">
+                    <h4>Examples</h4>
+                    <ul>
+                        <li>Number of defective items in a batch</li>
+                        <li>Number of customers arriving per hour</li>
+                        <li>Number of heads in 10 coin tosses</li>
+                        <li>Number of students in a class</li>
+                    </ul>
+                </div>
+
+                <h3>Continuous Random Variables</h3>
+                <div class="definition-box">
+                    <h4>Characteristics</h4>
+                    <ul>
+                        <li>Has an uncountably infinite number of possible values</li>
+                        <li>Moves continuously from value to value (no gaps)</li>
+                        <li>Has NO measurable probability for individual values</li>
+                        <li><strong>Measures things</strong></li>
+                    </ul>
+                </div>
+
+                <div class="example-box">
+                    <h4>Examples</h4>
+                    <ul>
+                        <li>Height of a person</li>
+                        <li>Weight of an object</li>
+                        <li>Time to complete a task</li>
+                        <li>Temperature</li>
+                    </ul>
+                </div>
+
+                <h3>Key Difference</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Aspect</th>
+                            <th>Discrete</th>
+                            <th>Continuous</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Values</strong></td>
+                            <td>Countable (1, 2, 3...)</td>
+                            <td>Infinite (any value in range)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Gaps</strong></td>
+                            <td>Yes (jumps between values)</td>
+                            <td>No (smooth transitions)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>P(X = specific value)</strong></td>
+                            <td>Can be > 0</td>
+                            <td>Always = 0</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Measures</strong></td>
+                            <td>Counts</td>
+                            <td>Measurements</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- PROBABILITY DISTRIBUTIONS -->
+            <section>
+                <h2>📈 Probability Distributions</h2>
+
+                <div class="definition-box">
+                    <h4>Definition</h4>
+                    <p>A <strong>probability distribution</strong> is a table or function that lists all possible values of a random variable and their associated probabilities.</p>
+                </div>
+
+                <h3>Rules for Discrete Probability Distributions</h3>
+                <div class="formula">
+                    1. 0 ≤ P(x) ≤ 1 for all values of x<br>
+                    2. ∑ P(x) = 1 (sum of all probabilities equals 1)
+                </div>
+
+                <div class="example-box">
+                    <h4>Example: Number of Switches</h4>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Number of Switches (x)</th>
+                                <th>Probability P(x)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>0</td>
+                                <td>0.1</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>0.2</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>0.3</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>0.2</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>0.1</td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>0.1</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Total</strong></td>
+                                <td><strong>1.0</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3>Cumulative Distribution Function F(x)</h3>
+                <div class="definition-box">
+                    <h4>Definition</h4>
+                    <p>F(x) = P(X ≤ x) = sum of all probabilities up to and including x</p>
+                </div>
+
+                <div class="example-box">
+                    <h4>Example</h4>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>x</th>
+                                <th>P(x)</th>
+                                <th>F(x)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>0</td>
+                                <td>0.1</td>
+                                <td>0.1</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>0.2</td>
+                                <td>0.3</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>0.3</td>
+                                <td>0.6</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>0.2</td>
+                                <td>0.8</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>0.1</td>
+                                <td>0.9</td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>0.1</td>
+                                <td>1.0</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p><strong>Example:</strong> P(X ≤ 3) = F(3) = 0.8</p>
+                </div>
+            </section>
+
+            <!-- EXPECTED VALUE -->
+            <section>
+                <h2>🎯 Expected Value (Mean)</h2>
+
+                <div class="definition-box">
+                    <h4>Definition</h4>
+                    <p>The <strong>expected value</strong> (or mean) is the average value of a random variable, weighted by probabilities. It's what we expect to get on average if we repeat the experiment many times.</p>
+                    <p><strong>Formula:</strong> E(X) = μ = ∑ x × P(x)</p>
+                </div>
+
+                <div class="note-box">
+                    <h4>What It Means</h4>
+                    <p>If you repeat an experiment many times, the average of all results will approach the expected value. It's the "long-run average."</p>
+                </div>
+
+                <div class="example-box">
+                    <h4>Example: Number of Switches</h4>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>x</th>
+                                <th>P(x)</th>
+                                <th>x × P(x)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>0</td>
+                                <td>0.1</td>
+                                <td>0.0</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>0.2</td>
+                                <td>0.2</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>0.3</td>
+                                <td>0.6</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>0.2</td>
+                                <td>0.6</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>0.1</td>
+                                <td>0.4</td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>0.1</td>
+                                <td>0.5</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Total</strong></td>
+                                <td><strong>1.0</strong></td>
+                                <td><strong>2.3</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p><strong>Interpretation:</strong> E(X) = 2.3 switches on average. If we observe many systems, the average number of switches will be about 2.3.</p>
+                </div>
+
+                <div class="example-box">
+                    <h4>Example: Fair Coin Toss</h4>
+                    <p>If X = 1 for Heads and X = 0 for Tails:</p>
+                    <ul>
+                        <li>E(X) = 1 × 0.5 + 0 × 0.5 = 0.5</li>
+                        <li>On average, we get 0.5 (which makes sense - half the time Heads, half the time Tails)</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- VARIANCE AND STANDARD DEVIATION -->
+            <section>
+                <h2>📊 Variance and Standard Deviation</h2>
+
+                <div class="definition-box">
+                    <h4>Variance Formula</h4>
+                    <p>V(X) = σ² = ∑ (x - μ)² × P(x) = E(X²) - [E(X)]²</p>
+                </div>
+
+                <div class="definition-box">
+                    <h4>Standard Deviation Formula</h4>
+                    <p>SD(X) = σ = √V(X)</p>
+                </div>
+
+                <div class="example-box">
+                    <h4>Example</h4>
+                    <p>Using the switches data with E(X) = 2.3:</p>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>x</th>
+                                <th>P(x)</th>
+                                <th>x²</th>
+                                <th>x² × P(x)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>0</td>
+                                <td>0.1</td>
+                                <td>0</td>
+                                <td>0.0</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>0.2</td>
+                                <td>1</td>
+                                <td>0.2</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>0.3</td>
+                                <td>4</td>
+                                <td>1.2</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>0.2</td>
+                                <td>9</td>
+                                <td>1.8</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>0.1</td>
+                                <td>16</td>
+                                <td>1.6</td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>0.1</td>
+                                <td>25</td>
+                                <td>2.5</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Total</strong></td>
+                                <td><strong>1.0</strong></td>
+                                <td></td>
+                                <td><strong>7.3</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <ul>
+                        <li>E(X²) = 7.3</li>
+                        <li>V(X) = 7.3 - (2.3)² = 7.3 - 5.29 = 2.01</li>
+                        <li>SD(X) = √2.01 ≈ 1.42</li>
+                    </ul>
+                </div>
+            </section>
+            
+            <section>
+    <h2>📊 Variance and Standard Deviation</h2>
+
+    <div class="definition-box">
+        <h4>Variance Formula (Easier Method)</h4>
+        <p>V(X) = E(X²) - [E(X)]²</p>
+    </div>
+
+    <div class="definition-box">
+        <h4>Standard Deviation Formula</h4>
+        <p>SD(X) = √V(X)</p>
+    </div>
+
+    <div class="example-box">
+        <h4>Example: Calculating Variance</h4>
+        <p>From earlier: E(X) = 2.3 switches (average)</p>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>x</th>
+                    <th>P(x)</th>
+                    <th>x × P(x)</th>
+                    <th>x²</th>
+                    <th>x² × P(x)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>0</td>
+                    <td>0.1</td>
+                    <td>0.0</td>
+                    <td>0</td>
+                    <td>0.0</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>0.2</td>
+                    <td>0.2</td>
+                    <td>1</td>
+                    <td>0.2</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>0.3</td>
+                    <td>0.6</td>
+                    <td>4</td>
+                    <td>1.2</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>0.2</td>
+                    <td>0.6</td>
+                    <td>9</td>
+                    <td>1.8</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>0.1</td>
+                    <td>0.4</td>
+                    <td>16</td>
+                    <td>1.6</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>0.1</td>
+                    <td>0.5</td>
+                    <td>25</td>
+                    <td>2.5</td>
+                </tr>
+                <tr class="total-row">
+                    <td><strong>Total</strong></td>
+                    <td><strong>1.0</strong></td>
+                    <td><strong>2.3 = E(X)</strong></td>
+                    <td></td>
+                    <td><strong>7.3 = E(X²)</strong></td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <div class="calculation-steps">
+            <h5>Step-by-Step Calculation:</h5>
+            <div class="formula-box">
+                <p><strong>E(X) = 2.3</strong> (from "x × P(x)" column total)</p>
+                <p><strong>E(X²) = 7.3</strong> (from "x² × P(x)" column total)</p>
+                <p><strong>V(X) = E(X²) - [E(X)]²</strong></p>
+                <p>= 7.3 - (2.3)²</p>
+                <p>= 7.3 - 5.29</p>
+                <p>= <strong>2.01</strong></p>
+            </div>
+            
+            <div class="formula-box">
+                <p><strong>SD(X) = √V(X)</strong></p>
+                <p>= √2.01</p>
+                <p>≈ <strong>1.42 switches</strong></p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <h2>💰 Expected Profit Example</h2>
+
+    <div class="example-box">
+        <h4>Example 3-3: Monthly Profit Calculation</h4>
+        <p><strong>Situation:</strong> Monthly sales follow this distribution. Company has:
+            <br>• Fixed monthly cost: $8000
+            <br>• Revenue: $2 per item sold
+            <br>Find the expected monthly profit h(X).</p>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Items Sold (x)</th>
+                    <th>P(x)</th>
+                    <th>x × P(x)</th>
+                    <th>Profit h(x)</th>
+                    <th>h(x) × P(x)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>5000</td>
+                    <td>0.2</td>
+                    <td>1000</td>
+                    <td>2000</td>
+                    <td>400</td>
+                </tr>
+                <tr>
+                    <td>6000</td>
+                    <td>0.3</td>
+                    <td>1800</td>
+                    <td>4000</td>
+                    <td>1200</td>
+                </tr>
+                <tr>
+                    <td>7000</td>
+                    <td>0.2</td>
+                    <td>1400</td>
+                    <td>6000</td>
+                    <td>1200</td>
+                </tr>
+                <tr>
+                    <td>8000</td>
+                    <td>0.2</td>
+                    <td>1600</td>
+                    <td>8000</td>
+                    <td>1600</td>
+                </tr>
+                <tr>
+                    <td>9000</td>
+                    <td>0.1</td>
+                    <td>900</td>
+                    <td>10000</td>
+                    <td>1000</td>
+                </tr>
+                <tr class="total-row">
+                    <td><strong>Total</strong></td>
+                    <td><strong>1.0</strong></td>
+                    <td><strong>6700 = E(X)</strong></td>
+                    <td></td>
+                    <td><strong>5400 = E[h(X)]</strong></td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <div class="calculation-steps">
+            <h5>Understanding the Profit Function:</h5>
+            <p><strong>Profit = Revenue - Cost</strong></p>
+            <p><strong>h(x) = (2 × x) - 8000</strong></p>
+            <p>Where:
+                <br>• 2 × x = revenue from selling x items at $2 each
+                <br>• 8000 = fixed monthly cost</p>
+            
+            <h5>Calculations:</h5>
+            <div class="formula-box">
+                <p><strong>1. Expected Items Sold:</strong></p>
+                <p>E(X) = Σ [x × P(x)] = 6700 items</p>
+                
+                <p><strong>2. Expected Profit:</strong></p>
+                <p>E[h(X)] = Σ [h(x) × P(x)] = $5400</p>
+                
+                <p><strong>3. Alternative Check:</strong></p>
+                <p>E[h(X)] = 2 × E(X) - 8000</p>
+                <p>= 2 × 6700 - 8000</p>
+                <p>= 13400 - 8000</p>
+                <p>= <strong>$5400 ✓</strong></p>
+            </div>
+            
+            <div class="key-point">
+                <p><strong>Key Insight:</strong> The expected monthly profit is $5400, even though individual monthly profits vary from $2000 to $10000.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <h2>📈 Profit Variance and Standard Deviation</h2>
+
+    <div class="example-box">
+        <h4>Calculating Variance of Monthly Profit</h4>
+        <p>From previous: E[h(X)] = $5400 (expected profit)</p>
+        <p>We need to find: V[h(X)] = E[h(X)²] - [E[h(X)]]²</p>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Items Sold (x)</th>
+                    <th>P(x)</th>
+                    <th>Profit h(x)</th>
+                    <th>h(x) × P(x)</th>
+                    <th>h(x)²</th>
+                    <th>h(x)² × P(x)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>5000</td>
+                    <td>0.2</td>
+                    <td>2000</td>
+                    <td>400</td>
+                    <td>4,000,000</td>
+                    <td>800,000</td>
+                </tr>
+                <tr>
+                    <td>6000</td>
+                    <td>0.3</td>
+                    <td>4000</td>
+                    <td>1200</td>
+                    <td>16,000,000</td>
+                    <td>4,800,000</td>
+                </tr>
+                <tr>
+                    <td>7000</td>
+                    <td>0.2</td>
+                    <td>6000</td>
+                    <td>1200</td>
+                    <td>36,000,000</td>
+                    <td>7,200,000</td>
+                </tr>
+                <tr>
+                    <td>8000</td>
+                    <td>0.2</td>
+                    <td>8000</td>
+                    <td>1600</td>
+                    <td>64,000,000</td>
+                    <td>12,800,000</td>
+                </tr>
+                <tr>
+                    <td>9000</td>
+                    <td>0.1</td>
+                    <td>10000</td>
+                    <td>1000</td>
+                    <td>100,000,000</td>
+                    <td>10,000,000</td>
+                </tr>
+                <tr class="total-row">
+                    <td><strong>Total</strong></td>
+                    <td><strong>1.0</strong></td>
+                    <td></td>
+                    <td><strong>5400 = E[h(X)]</strong></td>
+                    <td></td>
+                    <td><strong>34,600,000 = E[h(X)²]</strong></td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <div class="calculation-steps">
+            <h5>Step-by-Step Calculation:</h5>
+            <div class="formula-box">
+                <p><strong>1. Expected Profit Squared:</strong></p>
+                <p>E[h(X)²] = Σ [h(x)² × P(x)] = 34,600,000</p>
+                
+                <p><strong>2. Variance of Profit:</strong></p>
+                <p>V[h(X)] = E[h(X)²] - [E[h(X)]]²</p>
+                <p>= 34,600,000 - (5400)²</p>
+                <p>= 34,600,000 - 29,160,000</p>
+                <p>= <strong>5,440,000</strong></p>
+                
+                <p><strong>3. Standard Deviation of Profit:</strong></p>
+                <p>SD[h(X)] = √V[h(X)]</p>
+                <p>= √5,440,000</p>
+                <p>≈ <strong>$2332.38</strong></p>
+            </div>
+            
+            <div class="key-point">
+                <p><strong>Interpretation:</strong></p>
+                <ul>
+                    <li>Expected monthly profit = <strong>$5400</strong></li>
+                    <li>Profit varies with standard deviation = <strong>±$2332</strong></li>
+                    <li>This means monthly profits typically range from:
+                        <br>$5400 - $2332 = <strong>$3068</strong> to 
+                        <br>$5400 + $2332 = <strong>$7732</strong></li>
+                    <li>Large variance (5.44 million) shows significant month-to-month variation in profits</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+            <!-- BERNOULLI DISTRIBUTION -->
+            <section>
+                <h2>🎲 Bernoulli Distribution</h2>
+
+                <div class="definition-box">
+                    <h4>Definition</h4>
+                    <p>A <strong>Bernoulli trial</strong> is an experiment with only two possible outcomes: success or failure. A <strong>Bernoulli random variable</strong> counts the number of successes in one trial (0 or 1).</p>
+                </div>
+
+                <h3>Bernoulli Distribution Formula</h3>
+                <div class="formula">
+                    P(X = 1) = p (probability of success)<br>
+                    P(X = 0) = 1 - p = q (probability of failure)
+                </div>
+
+                <h3>Mean and Variance</h3>
+                <div class="formula">
+                    E(X) = p<br>
+                    V(X) = p(1 - p) = pq
+                </div>
+
+                <div class="example-box">
+                    <h4>Example: Fair Coin Toss</h4>
+                    <ul>
+                        <li>Success = Heads, p = 0.5</li>
+                        <li>Failure = Tails, q = 0.5</li>
+                        <li>E(X) = 0.5</li>
+                        <li>V(X) = 0.5 × 0.5 = 0.25</li>
+                    </ul>
+                </div>
+
+                <h3>Applications</h3>
+                <ul>
+                    <li>Medical: Disease present/absent</li>
+                    <li>Quality control: Defective/non-defective</li>
+                    <li>Marketing: Purchase/no purchase</li>
+                </ul>
+            </section>
+
+            <!-- BINOMIAL DISTRIBUTION -->
+            <section>
+                <h2>📊 Binomial Distribution</h2>
+
+                <div class="definition-box">
+                    <h4>Definition</h4>
+                    <p>The <strong>binomial distribution</strong> counts the number of successes in n independent Bernoulli trials.</p>
+                </div>
+
+                <h3>Conditions for Binomial Distribution</h3>
+                <ul>
+                    <li>Fixed number of trials (n)</li>
+                    <li>Each trial has two outcomes (success/failure)</li>
+                    <li>Probability of success (p) is constant</li>
+                    <li>Trials are independent</li>
+                </ul>
+
+                <h3>Binomial Probability Formula</h3>
+                <div class="formula">
+                    P(X = x) = C(n,x) × p^x × q^(n-x)<br>
+                    where C(n,x) = n! / (x!(n-x)!)
+                </div>
+
+                <div class="example-box">
+                    <h4>Example: Five Coin Tosses</h4>
+                    <p>What is the probability of exactly 2 heads in 5 tosses?</p>
+                    <ul>
+                        <li>n = 5, x = 2, p = 0.5, q = 0.5</li>
+                        <li>C(5,2) = 5! / (2! × 3!) = 10</li>
+                        <li>P(X = 2) = 10 × (0.5)² × (0.5)³ = 10 × 0.03125 = 0.3125</li>
+                    </ul>
+                </div>
+<div class="example-box">
+    <h4>Example: Company Shares Distribution</h4>
+    <p><strong>Situation:</strong> 60% of all company shares are owned by LeBow investors. 
+    A random sample of 15 shares is selected. What's the probability that <strong>at most 3</strong> 
+    of these shares are owned by LeBow?</p>
+    
+    <div class="problem-setup">
+        <h5>Step 1: Identify the Parameters</h5>
+        <ul>
+            <li><strong>n = 15</strong> (sample size)</li>
+            <li><strong>p = 0.60</strong> (probability a share is owned by LeBow)</li>
+            <li><strong>q = 1 - p = 0.40</strong> (probability a share is NOT owned by LeBow)</li>
+            <li><strong>X =</strong> number of LeBow-owned shares in the sample</li>
+            <li>We want: <strong>P(X ≤ 3)</strong> = P(X = 0) + P(X = 1) + P(X = 2) + P(X = 3)</li>
+        </ul>
+    </div>
+    
+    <div class="calculation-steps">
+        <h5>Step 2: Recall the Binomial Formula</h5>
+        <div class="formula-box">
+            <p>P(X = x) = C(n, x) × pˣ × qⁿ⁻ˣ</p>
+            <p>where C(n, x) = n! / [x! × (n - x)!]</p>
+        </div>
+    </div>
+    
+    <div class="calculation-steps">
+        <h5>Step 3: Calculate Each Probability</h5>
+        
+        <div class="sub-calculation">
+            <p><strong>P(X = 0):</strong> Exactly 0 LeBow shares</p>
+            <p>C(15, 0) = 1</p>
+            <p>P(X = 0) = 1 × (0.60)⁰ × (0.40)¹⁵</p>
+            <p>= 1 × 1 × (0.40)¹⁵</p>
+            <p>= 0.00000107374</p>
+            <p class="result">≈ 0.000001</p>
+        </div>
+        
+        <div class="sub-calculation">
+            <p><strong>P(X = 1):</strong> Exactly 1 LeBow share</p>
+            <p>C(15, 1) = 15! / (1! × 14!) = 15</p>
+            <p>P(X = 1) = 15 × (0.60)¹ × (0.40)¹⁴</p>
+            <p>= 15 × 0.60 × (0.40)¹⁴</p>
+            <p>= 15 × 0.60 × 0.00000268435</p>
+            <p>= 15 × 0.00000161061</p>
+            <p>= 0.00002415915</p>
+            <p class="result">≈ 0.000024</p>
+        </div>
+        
+        <div class="sub-calculation">
+            <p><strong>P(X = 2):</strong> Exactly 2 LeBow shares</p>
+            <p>C(15, 2) = 15! / (2! × 13!) = (15 × 14) / (2 × 1) = 105</p>
+            <p>P(X = 2) = 105 × (0.60)² × (0.40)¹³</p>
+            <p>= 105 × 0.36 × (0.40)¹³</p>
+            <p>= 105 × 0.36 × 0.00000671089</p>
+            <p>= 105 × 0.00000241592</p>
+            <p>= 0.0002536716</p>
+            <p class="result">≈ 0.000254</p>
+        </div>
+        
+        <div class="sub-calculation">
+            <p><strong>P(X = 3):</strong> Exactly 3 LeBow shares</p>
+            <p>C(15, 3) = 15! / (3! × 12!) = (15 × 14 × 13) / (3 × 2 × 1) = 455</p>
+            <p>P(X = 3) = 455 × (0.60)³ × (0.40)¹²</p>
+            <p>= 455 × 0.216 × (0.40)¹²</p>
+            <p>= 455 × 0.216 × 0.00001677722</p>
+            <p>= 455 × 0.00000362388</p>
+            <p>= 0.0016488654</p>
+            <p class="result">≈ 0.001649</p>
+        </div>
+    </div>
+    
+    <div class="calculation-steps">
+        <h5>Step 4: Sum the Probabilities</h5>
+        <div class="formula-box">
+            <p>P(X ≤ 3) = P(X = 0) + P(X = 1) + P(X = 2) + P(X = 3)</p>
+            <p>= 0.000001 + 0.000024 + 0.000254 + 0.001649</p>
+            <p>= <strong>0.001928</strong></p>
+        </div>
+    </div>
+    
+    <div class="calculation-steps">
+        <h5>Step 5: Convert to Percentage</h5>
+        <div class="formula-box">
+            <p>0.001928 × 100% = <strong>0.1928%</strong></p>
+            <p class="result">≈ <strong>0.19%</strong> (rounded)</p>
+        </div>
+    </div>
+    
+    <div class="key-point">
+        <p><strong>Interpretation:</strong> There is only about a <strong>0.19% chance</strong> that 3 or fewer 
+        shares in a random sample of 15 would be owned by LeBow, given that LeBow owns 60% of all shares.</p>
+        <p>This is an extremely unlikely outcome, suggesting that if we actually observed 3 or fewer 
+        LeBow shares in our sample, we might question whether the 60% claim is accurate.</p>
+    </div>
+    
+    <!-- <div class="note-box">
+        <p><strong>Note:</strong> For practical calculations, statisticians often use:</p>
+        <ul>
+            <li>Binomial probability tables</li>
+            <li>Statistical calculators</li>
+            <li>Software like Excel: =BINOM.DIST(3, 15, 0.60, TRUE) returns 0.001928</li>
+        </ul>
+        <p>The "TRUE" in Excel gives the cumulative probability P(X ≤ 3).</p>
+    </div> -->
+</div>
+                <h3>Mean and Variance of Binomial</h3>
+                <div class="formula">
+                    E(X) = np<br>
+                    V(X) = npq<br>
+                    SD(X) = √(npq)
+                </div>
+
+                <div class="example-box">
+                    <h4>Example</h4>
+                    <p>For 5 fair coin tosses:</p>
+                    <ul>
+                        <li>E(X) = 5 × 0.5 = 2.5 heads</li>
+                        <li>V(X) = 5 × 0.5 × 0.5 = 1.25</li>
+                        <li>SD(X) = √1.25 ≈ 1.12</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- POISSON DISTRIBUTION -->
+            <section>
+                <h2>🔔 Poisson Distribution</h2>
+
+                <div class="definition-box">
+                    <h4>Definition</h4>
+                    <p>The <strong>Poisson distribution</strong> counts the number of occurrences of an event over a fixed time period or space, when events occur independently at a constant average rate.</p>
+                </div>
+
+                <h3>When to Use Poisson</h3>
+                <ul>
+                    <li>Counting events in a fixed interval (time, space, area)</li>
+                    <li>Events occur independently</li>
+                    <li>Average rate is constant</li>
+                    <li>Can approximate binomial when p is small and n is large</li>
+                </ul>
+
+                <h3>Poisson Probability Formula</h3>
+                <div class="formula">
+                    P(X = x) = (e^(-λ) × λ^x) / x!<br>
+                    where λ = average rate, e ≈ 2.718
+                </div>
+
+                <h3>Mean and Variance of Poisson</h3>
+                <div class="formula">
+                    E(X) = λ<br>
+                    V(X) = λ<br>
+                    (Mean equals variance!)
+                </div>
+
+                <div class="example-box">
+                    <h4>Example: Call Center</h4>
+                    <p>A call center receives 10 calls per hour on average. What is the probability of receiving exactly 3 calls in an hour?</p>
+                    <ul>
+                        <li>λ = 10</li>
+                        <li>P(X = 3) = (e^(-10) × 10³) / 3!</li>
+                        <li>P(X = 3) = (0.0000454 × 1000) / 6 ≈ 0.0076</li>
+                    </ul>
+                </div>
+
+                <h3>Applications</h3>
+                <ul>
+                    <li>Number of customer arrivals per hour</li>
+                    <li>Number of defects in a production batch</li>
+                    <li>Number of accidents per month</li>
+                    <li>Number of emails received per day</li>
+                </ul>
+            </section>
+
+
+<section>
+    <h2>📞 Poisson Distribution Example</h2>
+
+    <div class="example-box">
+        <h4>Example: Telephone Orders (Poisson Approximation)</h4>
+        <p><strong>Situation:</strong> There are 1000 different phone choices available. 200 managers each 
+        order independently, with each choice being equally likely. What's the probability that a 
+        particular phone choice is made by <strong>exactly 2 managers</strong>?</p>
+        
+        <div class="problem-setup">
+            <h5>Step 1: Identify This as a Poisson Situation</h5>
+            <p>The Poisson distribution is appropriate when:</p>
+            <ul>
+                <li>Events occur independently</li>
+                <li>Average rate λ is known</li>
+                <li>We're counting occurrences in a fixed interval</li>
+                <li>n is large and p is small (here: n=200, p=0.001)</li>
+            </ul>
+        </div>
+        
+        <div class="calculation-steps">
+            <h5>Step 2: Calculate the Poisson Parameter λ</h5>
+            <div class="formula-box">
+                <p>λ = n × p = 200 × (1/1000) = 200 × 0.001 = <strong>0.2</strong></p>
+                <p>This means on average, we expect 0.2 managers (about 1 in 5) to choose 
+                any particular phone type.</p>
+            </div>
+        </div>
+        
+        <div class="calculation-steps">
+            <h5>Step 3: Apply the Poisson Formula</h5>
+            <p>We want P(X = 2), where X = number of managers choosing this phone type.</p>
+            
+            <div class="formula-box">
+                <p>P(X = 2) = (e⁻⁰·² × 0.2²) / 2!</p>
+            </div>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Component</th>
+                        <th>Calculation</th>
+                        <th>Value</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>λ = np</td>
+                        <td>200 × (1/1000)</td>
+                        <td>0.2</td>
+                    </tr>
+                    <tr>
+                        <td>e⁻λ = e⁻⁰·²</td>
+                        <td>1 / e⁰·² ≈ 1 / 1.2214</td>
+                        <td>0.8187</td>
+                    </tr>
+                    <tr>
+                        <td>λ² = 0.2²</td>
+                        <td>0.2 × 0.2</td>
+                        <td>0.04</td>
+                    </tr>
+                    <tr>
+                        <td>e⁻λ × λ²</td>
+                        <td>0.8187 × 0.04</td>
+                        <td>0.032748</td>
+                    </tr>
+                    <tr>
+                        <td>2! (2 factorial)</td>
+                        <td>2 × 1</td>
+                        <td>2</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td><strong>P(X = 2)</strong></td>
+                        <td><strong>0.032748 ÷ 2</strong></td>
+                        <td><strong>0.016374</strong></td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+        
+        <div class="calculation-steps">
+            <h5>Step 4: Present the Final Result</h5>
+            <div class="formula-box result">
+                <p>P(X = 2) = 0.016374</p>
+                <p>= <strong>1.6374%</strong></p>
+                <p>≈ <strong>1.64%</strong> (rounded)</p>
+            </div>
+        </div>
+        
+        <div class="calculation-steps">
+            <h5>Step 5: Verify with Exact Binomial (for comparison)</h5>
+            <div class="formula-box">
+                <p><strong>Exact binomial calculation:</strong></p>
+                <p>P(X = 2) = C(200, 2) × (0.001)² × (0.999)¹⁹⁸</p>
+                <p>= 19,900 × 0.000001 × 0.8186</p>
+                <p>= 19,900 × 0.0000008186</p>
+                <p>= <strong>0.0163</strong> (very close to Poisson result)</p>
+            </div>
+            <p>The Poisson approximation (0.016374) is extremely close to the exact binomial (0.0163), 
+            demonstrating that the approximation works well here.</p>
+        </div>
+        
+        <div class="key-point">
+            <h5>Interpretation & Real-World Meaning</h5>
+            <ul>
+                <li>There's about a <strong>1.64% chance</strong> that exactly 2 out of 200 managers 
+                will choose a particular phone type.</li>
+                <li>Since there are 1000 phone choices, it's very unlikely for any specific choice 
+                to be selected by multiple managers.</li>
+                <li>The most likely outcomes are:
+                    <br>• P(X = 0) = 81.9% (no one chooses it)
+                    <br>• P(X = 1) = 16.4% (one manager chooses it)
+                    <br>• P(X ≥ 2) = 1.7% (two or more choose it)</li>
+            </ul>
+        </div>
+        
+        <div class="note-box">
+            <h5>When to Use Poisson Distribution</h5>
+            <p>Use Poisson as an approximation to binomial when:</p>
+            <ul>
+                <li>n ≥ 20</li>
+                <li>p ≤ 0.05</li>
+                <li>np ≤ 7</li>
+            </ul>
+            <p>Here: n=200, p=0.001, np=0.2 ✓ All conditions satisfied!</p>
+            <p><strong>Excel formula:</strong> =POISSON.DIST(2, 0.2, FALSE) returns 0.016374</p>
+        </div>
+    </div>
+</section>
+            <!-- GEOMETRIC DISTRIBUTION -->
+            <section>
+                <h2>🎯 Geometric Distribution</h2>
+
+                <div class="definition-box">
+                    <h4>Definition</h4>
+                    <p>The <strong>geometric distribution</strong> counts the number of trials needed to get the first success in a sequence of independent Bernoulli trials.</p>
+                </div>
+
+                <h3>Geometric Probability Formula</h3>
+                <div class="formula">
+                    P(X = n) = (1 - p)^(n-1) × p<br>
+                    where n = number of trials until first success
+                </div>
+
+                <h3>Mean of Geometric Distribution</h3>
+                <div class="formula">
+                    E(X) = 1/p
+                </div>
+
+                <div class="example-box">
+                    <h4>Example: Rolling a Die</h4>
+                    <p>What is the probability of rolling a 3 on the 5th roll (not before)?</p>
+                    <ul>
+                        <li>p = 1/6, n = 5</li>
+                        <li>P(X = 5) = (5/6)⁴ × (1/6) = 0.0804</li>
+                        <li>Expected number of rolls: E(X) = 1/(1/6) = 6</li>
+                    </ul>
+                </div>
+            </section>
+<section>
+    <h2>🎯 Geometric Distribution Example</h2>
+
+    <div class="definition-box">
+        <h4>Geometric Distribution Formula</h4>
+        <p>P(X = k) = (1 - p)<sup>k-1</sup> × p</p>
+        <p>where:
+            <br>• p = probability of success on each trial
+            <br>• k = trial number where FIRST success occurs
+            <br>• X = number of trials needed to get first success</p>
+        <p><strong>Mean (Expected Value):</strong> E(X) = 1/p</p>
+        <p><strong>Variance:</strong> V(X) = (1-p)/p²</p>
+    </div>
+
+    <div class="example-box">
+        <h4>Example: Job Interview Success</h4>
+        <p><strong>Situation:</strong> A recent graduate has a 30% chance of getting a job offer from any 
+        given interview. Interviews are independent. What's the probability that:</p>
+        <ol type="a">
+            <li>She gets her first offer on the 3rd interview?</li>
+            <li>She needs at most 4 interviews to get her first offer?</li>
+            <li>She needs more than 5 interviews to get her first offer?</li>
+        </ol>
+        
+        <div class="problem-setup">
+            <h5>Step 1: Identify Parameters</h5>
+            <ul>
+                <li><strong>p = 0.30</strong> (probability of getting an offer from any interview)</li>
+                <li><strong>q = 1 - p = 0.70</strong> (probability of NOT getting an offer)</li>
+                <li>Trials are independent</li>
+                <li>We're counting trials until FIRST success</li>
+            </ul>
+        </div>
+        
+        <div class="calculation-steps">
+            <h5>Part A: First success on 3rd interview</h5>
+            <div class="formula-box">
+                <p><strong>Pattern:</strong> Failure, Failure, Success</p>
+                <p>P(X = 3) = q<sup>2</sup> × p = (0.70)<sup>2</sup> × 0.30</p>
+            </div>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Step</th>
+                        <th>Calculation</th>
+                        <th>Value</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>q² = 0.70²</td>
+                        <td>0.70 × 0.70</td>
+                        <td>0.49</td>
+                    </tr>
+                    <tr>
+                        <td>Multiply by p</td>
+                        <td>0.49 × 0.30</td>
+                        <td>0.147</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td><strong>P(X = 3)</strong></td>
+                        <td><strong>(0.70)² × 0.30</strong></td>
+                        <td><strong>0.147 or 14.7%</strong></td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+        
+        <div class="calculation-steps">
+            <h5>Part B: First success within 4 interviews (P(X ≤ 4))</h5>
+            <div class="formula-box">
+                <p>P(X ≤ 4) = P(X = 1) + P(X = 2) + P(X = 3) + P(X = 4)</p>
+            </div>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>k</th>
+                        <th>Pattern</th>
+                        <th>Formula</th>
+                        <th>Calculation</th>
+                        <th>P(X = k)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Success</td>
+                        <td>p</td>
+                        <td>0.30</td>
+                        <td>0.3000</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>F, S</td>
+                        <td>q × p</td>
+                        <td>0.70 × 0.30</td>
+                        <td>0.2100</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>F, F, S</td>
+                        <td>q² × p</td>
+                        <td>0.49 × 0.30</td>
+                        <td>0.1470</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>F, F, F, S</td>
+                        <td>q³ × p</td>
+                        <td>0.343 × 0.30</td>
+                        <td>0.1029</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="4"><strong>P(X ≤ 4) = Sum</strong></td>
+                        <td><strong>0.7599 or 75.99%</strong></td>
+                    </tr>
+                </tfoot>
+            </table>
+            
+            <p><strong>Alternative method using complement:</strong></p>
+            <div class="formula-box">
+                <p>P(X ≤ 4) = 1 - P(X > 4) = 1 - q⁴</p>
+                <p>= 1 - (0.70)⁴ = 1 - 0.2401 = <strong>0.7599 ✓</strong></p>
+            </div>
+        </div>
+        
+        <div class="calculation-steps">
+            <h5>Part C: Needs more than 5 interviews (P(X > 5))</h5>
+            <div class="formula-box">
+                <p>P(X > 5) = Probability of 5 failures in a row = q⁵</p>
+                <p>= (0.70)⁵</p>
+            </div>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Calculation</th>
+                        <th>Value</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>0.70 × 0.70</td>
+                        <td>0.49</td>
+                    </tr>
+                    <tr>
+                        <td>0.49 × 0.70</td>
+                        <td>0.343</td>
+                    </tr>
+                    <tr>
+                        <td>0.343 × 0.70</td>
+                        <td>0.2401</td>
+                    </tr>
+                    <tr>
+                        <td>0.2401 × 0.70</td>
+                        <td>0.16807</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td><strong>(0.70)⁵</strong></td>
+                        <td><strong>0.16807 or 16.81%</strong></td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+        
+        <div class="calculation-steps">
+            <h5>Step 6: Calculate Expected Value and Standard Deviation</h5>
+            <div class="formula-box">
+                <p><strong>Expected number of interviews needed:</strong></p>
+                <p>E(X) = 1/p = 1/0.30 ≈ <strong>3.33 interviews</strong></p>
+                
+                <p><strong>Variance:</strong></p>
+                <p>V(X) = (1-p)/p² = 0.70/(0.30)² = 0.70/0.09 ≈ <strong>7.78</strong></p>
+                
+                <p><strong>Standard Deviation:</strong></p>
+                <p>SD(X) = √7.78 ≈ <strong>2.79 interviews</strong></p>
+            </div>
+        </div>
+        
+        <div class="key-point">
+            <h5>Summary & Interpretation</h5>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Question</th>
+                        <th>Probability</th>
+                        <th>Interpretation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>First offer on 3rd interview</td>
+                        <td>14.7%</td>
+                        <td>Moderately likely - she'll fail first two, succeed on third</td>
+                    </tr>
+                    <tr>
+                        <td>Offer within 4 interviews</td>
+                        <td>76.0%</td>
+                        <td>Very likely - she'll probably get an offer by the 4th try</td>
+                    </tr>
+                    <tr>
+                        <td>Needs more than 5 interviews</td>
+                        <td>16.8%</td>
+                        <td>Unlikely but possible - she'd need exceptional persistence</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Expected interviews needed</strong></td>
+                        <td><strong>3.33</strong></td>
+                        <td>On average, she'll need 3-4 interviews to get her first offer</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="note-box">
+            <h5>Geometric Distribution Characteristics</h5>
+            <ul>
+                <li><strong>Memoryless property:</strong> P(X > m+n | X > m) = P(X > n)
+                    <br>Example: Given she's already had 2 failures, probability she needs 
+                    >3 more interviews = P(X > 3) = (0.70)³ = 0.343</li>
+                <li>Always right-skewed (long tail to the right)</li>
+                <li><strong>Excel formula:</strong> 
+                    <br>• P(X = k): No direct function, calculate manually
+                    <br>• P(X ≤ k): =1 - (1-p)^k
+                    <br>• P(X > k): =(1-p)^k</li>
+            </ul>
+        </div>
+    </div>
+</section>
+            <!-- SUMMARY -->
+            <section>
+                <h2>✅ Key Takeaways</h2>
+                <ul>
+                    <li>Random variables assign numeric values to experimental outcomes</li>
+                    <li>Discrete variables count; continuous variables measure</li>
+                    <li>Probability distributions list all values and their probabilities</li>
+                    <li>Expected value is the weighted average of all outcomes</li>
+                    <li>Variance measures spread; standard deviation is its square root</li>
+                    <li>Bernoulli: single trial with two outcomes</li>
+                    <li>Binomial: number of successes in n independent trials</li>
+                    <li>Poisson: number of events in fixed interval (mean = variance)</li>
+                    <li>Geometric: number of trials until first success</li>
+                    <li>Choose distribution based on data characteristics and context</li>
+                </ul>
+            </section>
+        </main>
+    </div>
+
+    <footer>
+        <p>Faculty of Graduate Studies for Statistical Research, Cairo University</p>
+    </footer>
+</body>
+</html>

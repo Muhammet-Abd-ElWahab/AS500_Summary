@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lecture 8 Part 2 - Normal Distribution</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <header>
+        <h1>📈 Normal Distribution</h1>
+        <!-- <p>Understanding the Most Important Probability Distribution in Statistics</p> -->
+    </header>
+
+     <nav>
+        <a href="./Lecture-5.html">Probability (5)</a>
+        <a href="./Lecture-6_7.html">Discrete Random Variables (6,7)</a>
+        <!-- <a href="./Lecture-8_part1.html">Hypothesis Testing (8)</a> -->
+        <a href="./Lecture-8_part2.html">Normal Distribution (8)</a>
+        <!-- <a href="./Lecture-9.html">Regression Analysis (9)</a> -->
+        <a href="./Exam-5-9.html">Exams</a>
+        <a href="./cheat_sheet.html">Cheat Sheet</a>
+        <a href="./Revision.html">Revision</a>
+    </nav>
+
+    <div class="container">
+        <main>
+            <!-- INTRODUCTION -->
+            <section>
+                <h2>📌 Introduction to Normal Distribution</h2>
+                
+                <p>The <strong>normal distribution</strong> is the most important probability distribution in statistics. It appears naturally in many real-world phenomena and serves as the foundation for many statistical tests and procedures.</p>
+
+                <div class="definition-box">
+                    <h4>Why is Normal Distribution Important?</h4>
+                    <ul>
+                        <li>Many natural phenomena follow normal distribution (heights, weights, test scores)</li>
+                        <li>Central Limit Theorem: sample means approach normal distribution</li>
+                        <li>Foundation for hypothesis testing and confidence intervals</li>
+                        <li>Simplifies statistical calculations and predictions</li>
+                    </ul>
+                </div>
+
+                <h3>Historical Context</h3>
+                <p>As sample sizes increase, the binomial distribution approaches a normal distribution. This is why the normal distribution is so fundamental to statistics.</p>
+            </section>
+
+            <!-- PROPERTIES OF NORMAL DISTRIBUTION -->
+            <section>
+                <h2>🎯 Properties of the Normal Distribution</h2>
+
+                <h3>1. Bell-Shaped and Symmetric</h3>
+                <div class="definition-box">
+                    <h4>Shape Characteristics</h4>
+                    <ul>
+                        <li>The distribution is perfectly symmetric around the mean</li>
+                        <li>50% of the data lies on either side of the mean</li>
+                        <li>The shape resembles a bell, hence "bell curve"</li>
+                    </ul>
+                </div>
+
+                <h3>2. Family of Distributions</h3>
+                <p>The normal distribution is actually a <strong>family of distributions</strong>, each characterized by two parameters:</p>
+                <div class="formula">
+                    X ~ N(μ, σ²)<br>
+                    where μ = mean and σ² = variance
+                </div>
+
+                <div class="example-box">
+                    <h4>Examples of Different Normal Distributions</h4>
+                    <ul>
+                        <li>X₁ ~ N(100, 15²) - IQ scores</li>
+                        <li>X₂ ~ N(170, 10²) - Adult heights (cm)</li>
+                        <li>X₃ ~ N(50, 5²) - Test scores</li>
+                    </ul>
+                    <p>Each has the same shape but different centers and spreads.</p>
+                </div>
+
+                <h3>3. Asymptotic to the Horizontal Axis</h3>
+                <p>The normal distribution curve approaches but never touches the horizontal axis. Theoretically, values can range from -∞ to +∞, though practically most values fall within ±3σ of the mean.</p>
+
+                <h3>4. Area Under the Curve</h3>
+                <div class="definition-box">
+                    <h4>Key Property</h4>
+                    <p>The area under any normal probability density function within k standard deviations of μ is the same for any normal distribution, regardless of the mean and variance.</p>
+                    <p>This allows us to standardize and compare different normal distributions.</p>
+                </div>
+
+                <h3>5. Additive Property</h3>
+                <div class="definition-box">
+                    <h4>Sum of Independent Normal Variables</h4>
+                    <p>If X₁, X₂, ..., Xₙ are independent normal random variables, then their sum S is also normally distributed:</p>
+                    <ul>
+                        <li>E(S) = E(X₁) + E(X₂) + ... + E(Xₙ)</li>
+                        <li>V(S) = V(X₁) + V(X₂) + ... + V(Xₙ)</li>
+                    </ul>
+                    <p><strong>Important:</strong> Variances add, not standard deviations!</p>
+                </div>
+
+                <div class="example-box">
+                    <h4>Example: Sum of Three Normal Variables</h4>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Variable</th>
+                                <th>Mean</th>
+                                <th>Variance</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>X₁</td>
+                                <td>10</td>
+                                <td>1</td>
+                            </tr>
+                            <tr>
+                                <td>X₂</td>
+                                <td>20</td>
+                                <td>2</td>
+                            </tr>
+                            <tr>
+                                <td>X₃</td>
+                                <td>30</td>
+                                <td>3</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p><strong>For S = X₁ + X₂ + X₃:</strong></p>
+                    <ul>
+                        <li>E(S) = 10 + 20 + 30 = 60</li>
+                        <li>V(S) = 1 + 2 + 3 = 6</li>
+                        <li>SD(S) = √6 ≈ 2.45</li>
+                    </ul>
+                </div>
+
+                <h3>6. Linear Combinations of Normal Variables</h3>
+                <div class="definition-box">
+                    <h4>General Linear Combination</h4>
+                    <p>If X₁, X₂, ..., Xₙ are independent normal variables, then:</p>
+                    <p>Q = a₁X₁ + a₂X₂ + ... + aₙXₙ + b</p>
+                    <p>is also normally distributed with:</p>
+                    <ul>
+                        <li>E(Q) = a₁E(X₁) + a₂E(X₂) + ... + aₙE(Xₙ) + b</li>
+                        <li>V(Q) = a₁²V(X₁) + a₂²V(X₂) + ... + aₙ²V(Xₙ)</li>
+                    </ul>
+                </div>
+
+                <div class="example-box">
+                    <h4>Example: Linear Combination</h4>
+                    <p>Find E(Q) and V(Q) for Q = X₁ - 2X₂ + 3X₃ - 4X₄ + 5</p>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Variable</th>
+                                <th>Mean</th>
+                                <th>Variance</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>X₁</td>
+                                <td>12</td>
+                                <td>4</td>
+                            </tr>
+                            <tr>
+                                <td>X₂</td>
+                                <td>-5</td>
+                                <td>2</td>
+                            </tr>
+                            <tr>
+                                <td>X₃</td>
+                                <td>8</td>
+                                <td>5</td>
+                            </tr>
+                            <tr>
+                                <td>X₄</td>
+                                <td>10</td>
+                                <td>1</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p><strong>Solution:</strong></p>
+                    <ul>
+                        <li>E(Q) = 12 - 2(-5) + 3(8) - 4(10) + 5 = 12 + 10 + 24 - 40 + 5 = 11</li>
+                        <li>V(Q) = 1²(4) + (-2)²(2) + 3²(5) + (-4)²(1) = 4 + 8 + 45 + 16 = 73</li>
+                        <li>SD(Q) = √73 ≈ 8.54</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- NORMAL PROBABILITY DENSITY FUNCTION -->
+            <section>
+                <h2>📐 Normal Probability Density Function</h2>
+
+                <div class="formula">
+                    f(x) = (1/(σ√(2π))) × e^(-(x-μ)²/(2σ²))<br>
+                    where e ≈ 2.71828 and π ≈ 3.14159
+                </div>
+
+                <div class="note-box">
+                    <h4>Understanding the Formula</h4>
+                    <ul>
+                        <li><strong>μ:</strong> Determines the center of the distribution</li>
+                        <li><strong>σ:</strong> Determines the spread (width) of the distribution</li>
+                        <li><strong>e and π:</strong> Mathematical constants</li>
+                        <li>The formula ensures the total area under the curve equals 1</li>
+                    </ul>
+                </div>
+
+                <h3>Key Insight</h3>
+                <p>The probability of any specific value is 0 (since we're dealing with a continuous distribution). Instead, we calculate probabilities for ranges of values (areas under the curve).</p>
+            </section>
+
+            <!-- STANDARD NORMAL DISTRIBUTION -->
+            <section>
+                <h2>⭐ The Standard Normal Distribution</h2>
+
+                <div class="definition-box">
+                    <h4>Standard Normal Distribution</h4>
+                    <p>The <strong>standard normal distribution</strong> is a special normal distribution with:</p>
+                    <ul>
+                        <li>Mean (μ) = 0</li>
+                        <li>Standard Deviation (σ) = 1</li>
+                        <li>Notation: Z ~ N(0, 1)</li>
+                    </ul>
+                </div>
+
+                <h3>Why Standard Normal?</h3>
+                <div class="note-box">
+                    <h4>Advantages</h4>
+                    <ul>
+                        <li>Any normal distribution can be converted to standard normal</li>
+                        <li>Standard normal tables are readily available</li>
+                        <li>Simplifies probability calculations</li>
+                        <li>Allows comparison across different scales</li>
+                    </ul>
+                </div>
+
+                <h3>Standard Normal Table</h3>
+                <p>The standard normal table provides cumulative probabilities P(0 ≤ Z ≤ z) for positive z-values. Due to symmetry, we can find probabilities for negative values.</p>
+
+                <div class="example-box">
+                    <h4>Reading the Table</h4>
+                    <p>To find P(0 ≤ Z ≤ 1.56):</p>
+                    <ul>
+                        <li>Look in row labeled 1.5</li>
+                        <li>Look in column labeled .06</li>
+                        <li>The intersection gives 0.4406</li>
+                        <li>So P(0 ≤ Z ≤ 1.56) = 0.4406</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- TRANSFORMATION OF NORMAL VARIABLES -->
+            <section>
+                <h2>🔄 Transformation of Normal Random Variables</h2>
+
+                <h3>Converting X to Z (Standardization)</h3>
+                <div class="formula">
+                    Z = (X - μ) / σ
+                </div>
+
+                <div class="definition-box">
+                    <h4>What This Does</h4>
+                    <ul>
+                        <li><strong>Subtraction (X - μ):</strong> Centers the distribution at 0</li>
+                        <li><strong>Division by σ:</strong> Scales to unit variance</li>
+                        <li>Result: Any normal distribution becomes standard normal</li>
+                    </ul>
+                </div>
+
+                <h3>Converting Z to X (Inverse Transformation)</h3>
+                <div class="formula">
+                    X = μ + Z × σ
+                </div>
+
+                <h3>Practical Examples</h3>
+
+                <div class="example-box">
+                    <h4>Example 1: Finding Probability</h4>
+                    <p><strong>Given:</strong> X ~ N(160, 30²)</p>
+                    <p><strong>Find:</strong> P(100 ≤ X ≤ 180)</p>
+                    <p><strong>Solution:</strong></p>
+                    <ul>
+                        <li>Convert lower bound: Z₁ = (100 - 160)/30 = -2.00</li>
+                        <li>Convert upper bound: Z₂ = (180 - 160)/30 = 0.67</li>
+                        <li>P(100 ≤ X ≤ 180) = P(-2.00 ≤ Z ≤ 0.67)</li>
+                        <li>From table: P(Z ≤ 0.67) = 0.7486 and P(Z ≤ -2.00) = 0.0228</li>
+                        <li>P(-2.00 ≤ Z ≤ 0.67) = 0.7486 - 0.0228 = 0.7258</li>
+                    </ul>
+                </div>
+
+                <div class="example-box">
+                    <h4>Example 2: Finding Probability</h4>
+                    <p><strong>Given:</strong> X ~ N(127, 22²)</p>
+                    <p><strong>Find:</strong> P(X ≤ 150)</p>
+                    <p><strong>Solution:</strong></p>
+                    <ul>
+                        <li>Convert: Z = (150 - 127)/22 = 1.05</li>
+                        <li>P(X ≤ 150) = P(Z ≤ 1.05)</li>
+                        <li>From table: P(Z ≤ 1.05) = 0.5 + 0.3531 = 0.8531</li>
+                    </ul>
+                </div>
+
+                <div class="example-box">
+                    <h4>Example 3: Finding Probability</h4>
+                    <p><strong>Given:</strong> X ~ N(383, 12²)</p>
+                    <p><strong>Find:</strong> P(394 ≤ X ≤ 399)</p>
+                    <p><strong>Solution:</strong></p>
+                    <ul>
+                        <li>Convert lower: Z₁ = (394 - 383)/12 = 0.92</li>
+                        <li>Convert upper: Z₂ = (399 - 383)/12 = 1.33</li>
+                        <li>P(394 ≤ X ≤ 399) = P(0.92 ≤ Z ≤ 1.33)</li>
+                        <li>From table: P(Z ≤ 1.33) = 0.5 + 0.4082 = 0.9082</li>
+                        <li>P(Z ≤ 0.92) = 0.5 + 0.3212 = 0.8212</li>
+                        <li>P(0.92 ≤ Z ≤ 1.33) = 0.9082 - 0.8212 = 0.0870</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- EMPIRICAL RULE -->
+            <section>
+                <h2>📊 The Empirical Rule (68-95-99.7 Rule)</h2>
+
+                <div class="definition-box">
+                    <h4>The Empirical Rule</h4>
+                    <p>For any normal distribution:</p>
+                    <ul>
+                        <li><strong>68%</strong> of data falls within ±1σ of μ</li>
+                        <li><strong>95%</strong> of data falls within ±2σ of μ</li>
+                        <li><strong>99.7%</strong> of data falls within ±3σ of μ</li>
+                    </ul>
+                </div>
+
+                <h3>Visual Representation</h3>
+                <p>Imagine a bell curve centered at μ:</p>
+                <ul>
+                    <li>The middle 68% is between μ - σ and μ + σ</li>
+                    <li>The middle 95% is between μ - 2σ and μ + 2σ</li>
+                    <li>The middle 99.7% is between μ - 3σ and μ + 3σ</li>
+                </ul>
+
+                <div class="example-box">
+                    <h4>Real-World Example: IQ Scores</h4>
+                    <p><strong>Given:</strong> IQ scores ~ N(100, 15²)</p>
+                    <p><strong>Interpretation:</strong></p>
+                    <ul>
+                        <li><strong>68% of people:</strong> IQ between 85 and 115 (100 ± 15)</li>
+                        <li><strong>95% of people:</strong> IQ between 70 and 130 (100 ± 30)</li>
+                        <li><strong>99.7% of people:</strong> IQ between 55 and 145 (100 ± 45)</li>
+                    </ul>
+                </div>
+
+                <h3>Practical Applications</h3>
+                <div class="note-box">
+                    <h4>Uses of the Empirical Rule</h4>
+                    <ul>
+                        <li>Quick probability estimates without tables</li>
+                        <li>Identifying outliers (values beyond ±3σ)</li>
+                        <li>Quality control in manufacturing</li>
+                        <li>Medical reference ranges</li>
+                        <li>Educational assessment</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- FINDING Z-VALUES -->
+            <section>
+                <h2>🔍 Finding Z-Values from Probabilities</h2>
+
+                <p>Sometimes we know the probability and need to find the corresponding z-value. This is the inverse of the usual problem.</p>
+
+                <div class="example-box">
+                    <h4>Example: Finding Z-value</h4>
+                    <p><strong>Find:</strong> z such that P(0 ≤ Z ≤ z) = 0.40</p>
+                    <p><strong>Solution:</strong></p>
+                    <ul>
+                        <li>Search the standard normal table for 0.40</li>
+                        <li>The closest value is 0.3997 (at z = 1.28)</li>
+                        <li>Therefore, z ≈ 1.28</li>
+                        <li>Also, P(Z ≤ 1.28) = 0.5 + 0.40 = 0.90</li>
+                    </ul>
+                </div>
+
+                <h3>Applications</h3>
+                <div class="note-box">
+                    <h4>When We Need This</h4>
+                    <ul>
+                        <li>Constructing confidence intervals</li>
+                        <li>Determining critical values for hypothesis tests</li>
+                        <li>Finding percentiles in a distribution</li>
+                        <li>Setting quality control limits</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- COMMON PROBABILITY CALCULATIONS -->
+            <section>
+                <h2>📋 Common Probability Calculations</h2>
+
+                <h3>Type 1: P(Z < a)</h3>
+                <div class="formula">
+                    If a > 0: P(Z < a) = 0.5 + P(0 < Z < a)<br>
+                    If a < 0: P(Z < a) = 0.5 - P(0 < Z < |a|)
+                </div>
+
+                <h3>Type 2: P(Z > a)</h3>
+                <div class="formula">
+                    P(Z > a) = 1 - P(Z < a)
+                </div>
+
+                <h3>Type 3: P(a < Z < b)</h3>
+                <div class="formula">
+                    P(a < Z < b) = P(Z < b) - P(Z < a)
+                </div>
+
+                <div class="example-box">
+                    <h4>Example: P(1 < Z < 2)</h4>
+                    <ul>
+                        <li>P(Z < 2) = 0.5 + 0.4772 = 0.9772</li>
+                        <li>P(Z < 1) = 0.5 + 0.3413 = 0.8413</li>
+                        <li>P(1 < Z < 2) = 0.9772 - 0.8413 = 0.1359</li>
+                    </ul>
+                </div>
+
+                <div class="example-box">
+                    <h4>Example: P(Z < -2.47)</h4>
+                    <ul>
+                        <li>From table: P(0 < Z < 2.47) = 0.4932</li>
+                        <li>By symmetry: P(Z < -2.47) = 0.5 - 0.4932 = 0.0068</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- SUMMARY -->
+            <section>
+                <h2>✅ Key Takeaways</h2>
+                <ul>
+                    <li>Normal distribution is bell-shaped, symmetric, and fundamental to statistics</li>
+                    <li>It's a family of distributions characterized by mean (μ) and variance (σ²)</li>
+                    <li>Standard normal distribution (Z ~ N(0,1)) allows standardization of any normal variable</li>
+                    <li>Transformation formula: Z = (X - μ) / σ</li>
+                    <li>The empirical rule (68-95-99.7) provides quick probability estimates</li>
+                    <li>Standard normal tables enable probability calculations</li>
+                    <li>Sums and linear combinations of normal variables are also normal</li>
+                    <li>Normal distribution is the basis for many statistical tests and procedures</li>
+                </ul>
+            </section>
+        </main>
+    </div>
+
+    <footer>
+        <p>Faculty of Graduate Studies for Statistical Research, Cairo University</p>
+    </footer>
+</body>
+</html>

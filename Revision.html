@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comprehensive Revision - Lectures 5-9</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <header>
+        <h1>📚 Comprehensive Revision Guide</h1>
+        <!-- <p>Complete Summary of Lectures 5-9 - All Key Concepts, Formulas & Examples</p> -->
+    </header>
+
+     <nav>
+        <a href="./Lecture-5.html">Probability (5)</a>
+        <a href="./Lecture-6_7.html">Discrete Random Variables (6,7)</a>
+        <!-- <a href="./Lecture-8_part1.html">Hypothesis Testing (8)</a> -->
+        <a href="./Lecture-8_part2.html">Normal Distribution (8)</a>
+        <!-- <a href="./Lecture-9.html">Regression Analysis (9)</a> -->
+        <a href="./Exam-5-9.html">Exams</a>
+        <a href="./cheat_sheet.html">Cheat Sheet</a>
+        <a href="./Revision.html">Revision</a>
+    </nav>
+
+    <div class="container">
+        <main>
+            <!-- LECTURE 5 REVISION -->
+            <section>
+                <h2>📌 LECTURE 5: PROBABILITY - Complete Summary</h2>
+
+                <h3>🎯 Key Definitions</h3>
+                <div class="definition-box">
+                    <h4>Probability</h4>
+                    <p>A quantitative measure of uncertainty, ranging from 0 (impossible) to 1 (certain).</p>
+                </div>
+
+                <h3>📊 Three Types of Probability</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Type</th>
+                            <th>Definition</th>
+                            <th>Formula</th>
+                            <th>Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Objective/Classical</strong></td>
+                            <td>Based on equally-likely events</td>
+                            <td>P(A) = m/n</td>
+                            <td>P(Heads) = 1/2</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Subjective</strong></td>
+                            <td>Based on personal beliefs</td>
+                            <td>Personal judgment</td>
+                            <td>"I'll attend with 80% probability"</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Empirical</strong></td>
+                            <td>Based on actual data</td>
+                            <td>P(A) = frequency/total</td>
+                            <td>10 successes in 200 trials = 0.05</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>⚙️ Basic Probability Rules</h3>
+                <div class="formula">
+                    1. Range: 0 ≤ P(A) ≤ 1<br>
+                    2. Complement: P(A') = 1 - P(A)<br>
+                    3. Addition: P(A ∪ B) = P(A) + P(B) - P(A ∩ B)<br>
+                    4. Mutually Exclusive: P(A ∪ B) = P(A) + P(B)<br>
+                    5. Conditional: P(A|B) = P(A ∩ B) / P(B)<br>
+                    6. Independence: P(A ∩ B) = P(A) × P(B)
+                </div>
+
+                <h3>🔑 Key Concepts</h3>
+                <ul>
+                    <li><strong>Sample Space (S):</strong> All possible outcomes</li>
+                    <li><strong>Event (A):</strong> Subset of sample space</li>
+                    <li><strong>Complement (A'):</strong> All outcomes NOT in A</li>
+                    <li><strong>Intersection (A ∩ B):</strong> Outcomes in BOTH A and B</li>
+                    <li><strong>Union (A ∪ B):</strong> Outcomes in A OR B or both</li>
+                    <li><strong>Mutually Exclusive:</strong> Cannot occur together (A ∩ B = ∅)</li>
+                    <li><strong>Independent:</strong> Occurrence of one doesn't affect the other</li>
+                </ul>
+
+                <h3>📋 When to Use Each Concept</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Situation</th>
+                            <th>Use This</th>
+                            <th>Formula</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Event doesn't happen</td>
+                            <td>Complement</td>
+                            <td>P(A') = 1 - P(A)</td>
+                        </tr>
+                        <tr>
+                            <td>Both events happen</td>
+                            <td>Intersection</td>
+                            <td>P(A ∩ B) = P(A) × P(B) if independent</td>
+                        </tr>
+                        <tr>
+                            <td>Either event happens</td>
+                            <td>Union</td>
+                            <td>P(A ∪ B) = P(A) + P(B) - P(A ∩ B)</td>
+                        </tr>
+                        <tr>
+                            <td>One event given another</td>
+                            <td>Conditional</td>
+                            <td>P(A|B) = P(A ∩ B) / P(B)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- LECTURE 6-7 REVISION -->
+            <section>
+                <h2>📊 LECTURE 6-7: DISCRETE RANDOM VARIABLES - Complete Summary</h2>
+
+                <h3>🎯 Key Definitions</h3>
+                <div class="definition-box">
+                    <h4>Random Variable</h4>
+                    <p>A function assigning numeric values to experimental outcomes.</p>
+                </div>
+
+                <h3>🔀 Discrete vs Continuous</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Aspect</th>
+                            <th>Discrete</th>
+                            <th>Continuous</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Values</strong></td>
+                            <td>Countable (1, 2, 3...)</td>
+                            <td>Infinite (any value)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Gaps</strong></td>
+                            <td>Yes (jumps)</td>
+                            <td>No (smooth)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>P(X = x)</strong></td>
+                            <td>Can be > 0</td>
+                            <td>Always = 0</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Measures</strong></td>
+                            <td>Counts</td>
+                            <td>Measurements</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Examples</strong></td>
+                            <td>Defects, arrivals, successes</td>
+                            <td>Height, weight, time</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>📈 Probability Distribution Rules</h3>
+                <div class="formula">
+                    1. 0 ≤ P(x) ≤ 1 for all x<br>
+                    2. ∑ P(x) = 1 (sum of all probabilities)
+                </div>
+
+                <h3>⚡ Expected Value & Variance</h3>
+                <div class="formula">
+                    E(X) = μ = ∑ x × P(x)<br>
+                    V(X) = σ² = ∑ (x - μ)² × P(x) = E(X²) - [E(X)]²<br>
+                    SD(X) = σ = √V(X)
+                </div>
+
+                <h3>🎲 Four Important Distributions</h3>
+
+                <h4>1. BERNOULLI DISTRIBUTION</h4>
+                <div class="definition-box">
+                    <h4>When to Use</h4>
+                    <p>Single trial with two outcomes (success/failure)</p>
+                    <p><strong>Formula:</strong> P(X = 1) = p, P(X = 0) = 1-p</p>
+                    <p><strong>Mean:</strong> E(X) = p</p>
+                    <p><strong>Variance:</strong> V(X) = p(1-p)</p>
+                </div>
+
+                <h4>2. BINOMIAL DISTRIBUTION</h4>
+                <div class="definition-box">
+                    <h4>When to Use</h4>
+                    <p>Number of successes in n independent trials</p>
+                    <p><strong>Conditions:</strong> Fixed n, constant p, independent trials</p>
+                    <p><strong>Formula:</strong> P(X = x) = C(n,x) × p^x × q^(n-x)</p>
+                    <p><strong>Mean:</strong> E(X) = np</p>
+                    <p><strong>Variance:</strong> V(X) = npq</p>
+                </div>
+
+                <h4>3. POISSON DISTRIBUTION</h4>
+                <div class="definition-box">
+                    <h4>When to Use</h4>
+                    <p>Number of events in fixed time/space interval</p>
+                    <p><strong>Conditions:</strong> Events independent, constant rate</p>
+                    <p><strong>Formula:</strong> P(X = x) = (e^(-λ) × λ^x) / x!</p>
+                    <p><strong>Mean:</strong> E(X) = λ</p>
+                    <p><strong>Variance:</strong> V(X) = λ (UNIQUE: mean = variance!)</p>
+                </div>
+
+                <h4>4. GEOMETRIC DISTRIBUTION</h4>
+                <div class="definition-box">
+                    <h4>When to Use</h4>
+                    <p>Number of trials until first success</p>
+                    <p><strong>Formula:</strong> P(X = n) = (1-p)^(n-1) × p</p>
+                    <p><strong>Mean:</strong> E(X) = 1/p</p>
+                </div>
+
+                <h3>📋 Decision Guide: Which Distribution?</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Question</th>
+                            <th>Answer</th>
+                            <th>Distribution</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Single trial?</td>
+                            <td>Yes</td>
+                            <td>Bernoulli</td>
+                        </tr>
+                        <tr>
+                            <td>Fixed number of trials?</td>
+                            <td>Yes</td>
+                            <td>Binomial</td>
+                        </tr>
+                        <tr>
+                            <td>Events in time/space interval?</td>
+                            <td>Yes</td>
+                            <td>Poisson</td>
+                        </tr>
+                        <tr>
+                            <td>Trials until first success?</td>
+                            <td>Yes</td>
+                            <td>Geometric</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- LECTURE 8 PART 1 REVISION -->
+            <section>
+                <h2>🔬 LECTURE 8 PART 1: HYPOTHESIS TESTING - Complete Summary</h2>
+
+                <h3>🎯 Key Definitions</h3>
+                <div class="definition-box">
+                    <h4>Hypothesis Testing</h4>
+                    <p>Statistical method to make decisions about populations using sample data.</p>
+                </div>
+
+                <h3>📋 Ten Steps in Hypothesis Testing</h3>
+                <ol>
+                    <li><strong>Identify the Data:</strong> Sample size, variables, measurements</li>
+                    <li><strong>State Assumptions:</strong> Normality, independence, etc.</li>
+                    <li><strong>State Hypotheses:</strong> H₀ and Hₐ</li>
+                    <li><strong>Select Test Statistic:</strong> Z, t, F, etc.</li>
+                    <li><strong>Distribution of Test Statistic:</strong> Normal, t, F, etc.</li>
+                    <li><strong>Set Decision Criteria:</strong> α level and critical values</li>
+                    <li><strong>Calculate Test Statistic:</strong> From sample data</li>
+                    <li><strong>Make Statistical Decision:</strong> Reject or fail to reject H₀</li>
+                    <li><strong>State Conclusion:</strong> In context of problem</li>
+                    <li><strong>Calculate p-value:</strong> Strength of evidence</li>
+                </ol>
+
+                <h3>⚙️ Hypothesis Types</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Type</th>
+                            <th>Definition</th>
+                            <th>Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Null (H₀)</strong></td>
+                            <td>No difference/effect</td>
+                            <td>H₀: μ = 180</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Alternative (Hₐ)</strong></td>
+                            <td>Difference/effect exists</td>
+                            <td>Hₐ: μ ≠ 180</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>🎯 Two-Tailed vs One-Tailed Tests</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Aspect</th>
+                            <th>Two-Tailed</th>
+                            <th>One-Tailed</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Hₐ</strong></td>
+                            <td>μ ≠ value</td>
+                            <td>μ > value or μ < value</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Rejection Regions</strong></td>
+                            <td>Both tails</td>
+                            <td>One tail</td>
+                        </tr>
+                        <tr>
+                            <td><strong>α Distribution</strong></td>
+                            <td>α/2 each tail</td>
+                            <td>α in one tail</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Use When</strong></td>
+                            <td>Any difference</td>
+                            <td>Specific direction</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>❌ Types of Errors</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>H₀ is True</th>
+                            <th>H₀ is False</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Reject H₀</strong></td>
+                            <td>Type I Error (α)</td>
+                            <td>Correct ✓</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Fail to Reject H₀</strong></td>
+                            <td>Correct ✓</td>
+                            <td>Type II Error (β)</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>📊 Statistical Tests</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Test</th>
+                            <th>When to Use</th>
+                            <th>Compares</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Z-test</strong></td>
+                            <td>Known σ, large n</td>
+                            <td>One mean to population</td>
+                        </tr>
+                        <tr>
+                            <td><strong>t-test (Independent)</strong></td>
+                            <td>Unknown σ, two groups</td>
+                            <td>Two independent means</td>
+                        </tr>
+                        <tr>
+                            <td><strong>t-test (Paired)</strong></td>
+                            <td>Same subjects twice</td>
+                            <td>Before/after or matched</td>
+                        </tr>
+                        <tr>
+                            <td><strong>ANOVA</strong></td>
+                            <td>More than 2 groups</td>
+                            <td>Multiple means</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>🔑 Key Concepts</h3>
+                <ul>
+                    <li><strong>α (Significance Level):</strong> Probability of Type I error (usually 0.05)</li>
+                    <li><strong>p-value:</strong> Probability of observing result if H₀ true (data-based)</li>
+                    <li><strong>Critical Value:</strong> Boundary of rejection region (predetermined)</li>
+                    <li><strong>Decision Rule:</strong> If p-value < α, reject H₀</li>
+                </ul>
+            </section>
+
+            <!-- LECTURE 8 PART 2 REVISION -->
+            <section>
+                <h2>📈 LECTURE 8 PART 2: NORMAL DISTRIBUTION - Complete Summary</h2>
+
+                <h3>🎯 Key Properties</h3>
+                <ul>
+                    <li>Bell-shaped and symmetric around mean</li>
+                    <li>Family of distributions (different μ and σ)</li>
+                    <li>Asymptotic to horizontal axis</li>
+                    <li>Area under curve = 1</li>
+                    <li>Sum of independent normal variables is normal</li>
+                </ul>
+
+                <h3>📐 Normal Probability Density Function</h3>
+                <div class="formula">
+                    f(x) = (1/(σ√(2π))) × e^(-(x-μ)²/(2σ²))
+                </div>
+
+                <h3>⭐ Standard Normal Distribution</h3>
+                <div class="definition-box">
+                    <h4>Definition</h4>
+                    <p>Z ~ N(0, 1) with μ = 0 and σ = 1</p>
+                    <p>Reference distribution for all normal variables</p>
+                </div>
+
+                <h3>🔄 Transformation Formula</h3>
+                <div class="formula">
+                    Z = (X - μ) / σ (X to Z)<br>
+                    X = μ + Z × σ (Z to X)
+                </div>
+
+                <h3>📊 Empirical Rule (68-95-99.7)</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Range</th>
+                            <th>Percentage</th>
+                            <th>Interpretation</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>μ ± 1σ</td>
+                            <td>68%</td>
+                            <td>Most data within 1 std dev</td>
+                        </tr>
+                        <tr>
+                            <td>μ ± 2σ</td>
+                            <td>95%</td>
+                            <td>Most data within 2 std devs</td>
+                        </tr>
+                        <tr>
+                            <td>μ ± 3σ</td>
+                            <td>99.7%</td>
+                            <td>Almost all data within 3 std devs</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>🔑 Key Concepts</h3>
+                <ul>
+                    <li><strong>Standardization:</strong> Convert any normal to standard normal</li>
+                    <li><strong>Z-score:</strong> Number of standard deviations from mean</li>
+                    <li><strong>Probability:</strong> Area under curve (not individual points)</li>
+                    <li><strong>Symmetry:</strong> P(Z < -a) = P(Z > a)</li>
+                </ul>
+            </section>
+
+            <!-- LECTURE 9 REVISION -->
+            <section>
+                <h2>📊 LECTURE 9: REGRESSION ANALYSIS - Complete Summary</h2>
+
+                <h3>🎯 Key Definitions</h3>
+                <div class="definition-box">
+                    <h4>Regression Analysis</h4>
+                    <p>Statistical method to examine relationships between variables and predict outcomes.</p>
+                </div>
+
+                <h3>📋 Types of Response Variables & Models</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Response Type</th>
+                            <th>Characteristics</th>
+                            <th>Regression Model</th>
+                            <th>Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Quantitative</strong></td>
+                            <td>Continuous</td>
+                            <td>Normal, Gamma, Inverse Gaussian</td>
+                            <td>Hospital stay length</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Count</strong></td>
+                            <td>Discrete, non-negative</td>
+                            <td>Poisson, Negative Binomial</td>
+                            <td>Number of visits</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Binary</strong></td>
+                            <td>Two categories</td>
+                            <td>Logistic</td>
+                            <td>Recovery yes/no</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Proportion</strong></td>
+                            <td>0 to 1</td>
+                            <td>Beta</td>
+                            <td>Success rate</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>⚙️ Linear Regression Model</h3>
+                <div class="formula">
+                    Population: Yᵢ = β₀ + β₁Xᵢ + εᵢ<br>
+                    Sample: Ŷᵢ = b₀ + b₁Xᵢ
+                </div>
+
+                <h3>🔑 Model Components</h3>
+                <ul>
+                    <li><strong>β₀ (b₀):</strong> Intercept (Y when X = 0)</li>
+                    <li><strong>β₁ (b₁):</strong> Slope (change in Y per unit X)</li>
+                    <li><strong>εᵢ:</strong> Random error term</li>
+                    <li><strong>Ŷᵢ:</strong> Predicted Y value</li>
+                </ul>
+
+                <h3>📊 Regression Assumptions</h3>
+                <ul>
+                    <li>Response variable is normally distributed</li>
+                    <li>Relationship is linear in parameters</li>
+                    <li>Relationship is linear in variables</li>
+                    <li>Errors are independent</li>
+                    <li>Errors have constant variance (homogeneity)</li>
+                </ul>
+
+                <h3>📈 Model Quality Indicators</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Indicator</th>
+                            <th>Meaning</th>
+                            <th>Interpretation</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>R²</strong></td>
+                            <td>Coefficient of determination</td>
+                            <td>% of variance explained (0-1)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Adjusted R²</strong></td>
+                            <td>R² adjusted for predictors</td>
+                            <td>Better for multiple predictors</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Durbin-Watson</strong></td>
+                            <td>Tests autocorrelation</td>
+                            <td>Close to 2 = no autocorrelation</td>
+                        </tr>
+                        <tr>
+                            <td><strong>VIF</strong></td>
+                            <td>Variance Inflation Factor</td>
+                            <td>< 5 = no multicollinearity</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>🔬 Eight Steps in Regression Analysis</h3>
+                <ol>
+                    <li>Enter variables (predictors and response)</li>
+                    <li>Select model quality indicators</li>
+                    <li>Interpret model quality (R², Durbin-Watson)</li>
+                    <li>Check for autocorrelation</li>
+                    <li>Test model significance (ANOVA)</li>
+                    <li>Test individual predictor significance (t-tests)</li>
+                    <li>Check for multicollinearity (VIF)</li>
+                    <li>Test residual normality</li>
+                </ol>
+
+                <h3>📋 Interpreting Regression Results</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Result</th>
+                            <th>Interpretation</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>R² = 0.75</td>
+                            <td>75% variance explained</td>
+                            <td>Good fit</td>
+                        </tr>
+                        <tr>
+                            <td>p-value < 0.05</td>
+                            <td>Significant predictor</td>
+                            <td>Keep in model</td>
+                        </tr>
+                        <tr>
+                            <td>VIF > 5</td>
+                            <td>Multicollinearity</td>
+                            <td>Remove or combine predictors</td>
+                        </tr>
+                        <tr>
+                            <td>Residuals not normal</td>
+                            <td>Assumption violated</td>
+                            <td>Transform or use different model</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>🔑 Dependent vs Independent Variables</h3>
+                <div class="important-box">
+                    <h4>How to Decide</h4>
+                    <ul>
+                        <li><strong>Dependent (Response, Y):</strong> What we want to predict/explain</li>
+                        <li><strong>Independent (Predictor, X):</strong> What we use to predict</li>
+                        <li><strong>Question:</strong> "Does X affect Y?" or "Can we predict Y from X?"</li>
+                        <li><strong>Example:</strong> Predicting hospital stay (Y) from age (X)</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- COMPREHENSIVE COMPARISON -->
+            <section>
+                <h2>🔄 Comprehensive Comparison: When to Use What</h2>
+
+                <h3>📊 Probability vs Distributions vs Hypothesis Testing</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Concept</th>
+                            <th>Purpose</th>
+                            <th>When to Use</th>
+                            <th>Output</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Probability</strong></td>
+                            <td>Measure likelihood</td>
+                            <td>Before experiment</td>
+                            <td>0 to 1</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Distribution</strong></td>
+                            <td>Model data pattern</td>
+                            <td>Describe data</td>
+                            <td>Probabilities for all values</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Hypothesis Test</strong></td>
+                            <td>Make decisions</td>
+                            <td>Test claims</td>
+                            <td>Reject or fail to reject H₀</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Regression</strong></td>
+                            <td>Predict outcomes</td>
+                            <td>Examine relationships</td>
+                            <td>Prediction equation</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>🎯 Decision Tree: Which Distribution?</h3>
+                <ul>
+                    <li><strong>Single trial, 2 outcomes?</strong> → Bernoulli</li>
+                    <li><strong>Fixed n trials, count successes?</strong> → Binomial</li>
+                    <li><strong>Events in time/space interval?</strong> → Poisson</li>
+                    <li><strong>Trials until first success?</strong> → Geometric</li>
+                    <li><strong>Continuous measurements?</strong> → Normal</li>
+                </ul>
+
+                <h3>🔬 Decision Tree: Which Test?</h3>
+                <ul>
+                    <li><strong>One group vs population?</strong> → Z or t-test</li>
+                    <li><strong>Two independent groups?</strong> → Independent t-test</li>
+                    <li><strong>Same group twice?</strong> → Paired t-test</li>
+                    <li><strong>More than 2 groups?</strong> → ANOVA</li>
+                    <li><strong>Predict from other variables?</strong> → Regression</li>
+                </ul>
+            </section>
+
+            <!-- FORMULAS SUMMARY -->
+            <section>
+                <h2>📐 Complete Formula Reference</h2>
+
+                <h3>Probability Formulas</h3>
+                <div class="formula">
+                    P(A) = m/n<br>
+                    P(A') = 1 - P(A)<br>
+                    P(A ∪ B) = P(A) + P(B) - P(A ∩ B)<br>
+                    P(A|B) = P(A ∩ B) / P(B)<br>
+                    P(A ∩ B) = P(A) × P(B) [if independent]
+                </div>
+
+                <h3>Distribution Formulas</h3>
+                <div class="formula">
+                    E(X) = ∑ x × P(x)<br>
+                    V(X) = ∑ (x - μ)² × P(x)<br>
+                    Binomial: P(X=x) = C(n,x) × p^x × q^(n-x)<br>
+                    Poisson: P(X=x) = (e^(-λ) × λ^x) / x!<br>
+                    Geometric: P(X=n) = (1-p)^(n-1) × p
+                </div>
+
+                <h3>Normal Distribution Formulas</h3>
+                <div class="formula">
+                    Z = (X - μ) / σ<br>
+                    X = μ + Z × σ<br>
+                    P(μ - σ < X < μ + σ) = 0.68<br>
+                    P(μ - 2σ < X < μ + 2σ) = 0.95<br>
+                    P(μ - 3σ < X < μ + 3σ) = 0.997
+                </div>
+
+                <h3>Hypothesis Testing Formulas</h3>
+                <div class="formula">
+                    Z = (X̄ - μ) / (σ/√n)<br>
+                    t = (X̄ - μ) / (s/√n)<br>
+                    Decision: If p-value < α, reject H₀
+                </div>
+
+                <h3>Regression Formulas</h3>
+                <div class="formula">
+                    Ŷ = b₀ + b₁X<br>
+                    R² = Explained Variance / Total Variance<br>
+                    VIF = 1 / (1 - R²ⱼ)
+                </div>
+            </section>
+
+            <!-- COMMON MISTAKES -->
+            <section>
+                <h2>⚠️ Common Mistakes to Avoid</h2>
+
+                <h3>Probability Mistakes</h3>
+                <ul>
+                    <li>❌ Confusing P(A|B) with P(B|A)</li>
+                    <li>❌ Forgetting to subtract overlap in union rule</li>
+                    <li>❌ Assuming independence without verification</li>
+                    <li>✓ Always check: Does one event affect the other?</li>
+                </ul>
+
+                <h3>Distribution Mistakes</h3>
+                <ul>
+                    <li>❌ Using binomial when n is not fixed</li>
+                    <li>❌ Using Poisson when events are not independent</li>
+                    <li>❌ Forgetting that Poisson mean = variance</li>
+                    <li>✓ Always verify distribution conditions first</li>
+                </ul>
+
+                <h3>Hypothesis Testing Mistakes</h3>
+                <ul>
+                    <li>❌ Confusing α and p-value</li>
+                    <li>❌ Using one-tailed test when two-tailed is appropriate</li>
+                    <li>❌ Interpreting p-value as probability H₀ is true</li>
+                    <li>✓ Remember: α is predetermined, p-value is calculated</li>
+                </ul>
+
+                <h3>Regression Mistakes</h3>
+                <ul>
+                    <li>❌ Assuming causation from correlation</li>
+                    <li>❌ Ignoring multicollinearity (VIF > 5)</li>
+                    <li>❌ Not checking residual normality</li>
+                    <li>✓ Always verify all assumptions before interpreting</li>
+                </ul>
+            </section>
+
+            <!-- STUDY TIPS -->
+            <section>
+                <h2>💡 Study Tips & Exam Strategies</h2>
+
+                <h3>Before the Exam</h3>
+                <ul>
+                    <li>Review all formulas and when to use them</li>
+                    <li>Practice with different examples</li>
+                    <li>Understand concepts, not just memorize</li>
+                    <li>Create flashcards for key definitions</li>
+                    <li>Work through practice problems</li>
+                </ul>
+
+                <h3>During the Exam</h3>
+                <ul>
+                    <li>Read questions carefully - identify what's being asked</li>
+                    <li>Check assumptions before applying formulas</li>
+                    <li>Show all work - partial credit is possible</li>
+                    <li>Double-check calculations</li>
+                    <li>Interpret results in context of the problem</li>
+                </ul>
+
+                <h3>Key Concepts to Master</h3>
+                <ul>
+                    <li>Difference between discrete and continuous</li>
+                    <li>When each distribution applies</li>
+                    <li>Hypothesis testing decision process</li>
+                    <li>Normal distribution and standardization</li>
+                    <li>Regression assumptions and interpretation</li>
+                </ul>
+            </section>
+
+            <!-- SUMMARY TABLE -->
+            <section>
+                <h2>📊 Complete Summary Table</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Lecture</th>
+                            <th>Main Topic</th>
+                            <th>Key Formulas</th>
+                            <th>When to Use</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>5</strong></td>
+                            <td>Probability</td>
+                            <td>P(A), P(A'), P(A|B)</td>
+                            <td>Measure likelihood</td>
+                        </tr>
+                        <tr>
+                            <td><strong>6-7</strong></td>
+                            <td>Distributions</td>
+                            <td>E(X), V(X), Binomial, Poisson</td>
+                            <td>Model discrete data</td>
+                        </tr>
+                        <tr>
+                            <td><strong>8.1</strong></td>
+                            <td>Hypothesis Testing</td>
+                            <td>Z, t, F, p-value</td>
+                            <td>Make decisions</td>
+                        </tr>
+                        <tr>
+                            <td><strong>8.2</strong></td>
+                            <td>Normal Distribution</td>
+                            <td>Z = (X-μ)/σ, Empirical Rule</td>
+                            <td>Model continuous data</td>
+                        </tr>
+                        <tr>
+                            <td><strong>9</strong></td>
+                            <td>Regression</td>
+                            <td>Ŷ = b₀ + b₁X, R²</td>
+                            <td>Predict outcomes</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- FINAL CHECKLIST -->
+            <section>
+                <h2>✅ Final Exam Checklist</h2>
+                <div class="important-box">
+                    <h4>Before You Start the Exam, Verify You Know:</h4>
+                    <ul>
+                        <li>☐ Three types of probability and when to use each</li>
+                        <li>☐ Difference between discrete and continuous variables</li>
+                        <li>☐ Four main distributions and their applications</li>
+                        <li>☐ Ten steps of hypothesis testing</li>
+                        <li>☐ Type I and Type II errors</li>
+                        <li>☐ Two-tailed vs one-tailed tests</li>
+                        <li>☐ Normal distribution properties and empirical rule</li>
+                        <li>☐ Z-score transformation formula</li>
+                        <li>☐ Regression model components</li>
+                        <li>☐ How to interpret R², p-values, and VIF</li>
+                        <li>☐ Dependent vs independent variables</li>
+                        <li>☐ When to use each statistical test</li>
+                    </ul>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <footer>
+        <p>Faculty of Graduate Studies for Statistical Research, Cairo University</p>
+    </footer>
+</body>
+</html>

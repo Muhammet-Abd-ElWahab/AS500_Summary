@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cheat Sheet - Quick Tips & Tricks</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <header>
+        <h1>💡 Cheat Sheet - Quick Tips & Tricks</h1>
+        <p>Fast Reference Guide for Solving Sheets Exam Questions</p>
+    </header>
+
+    <nav>
+        <a href="./Lecture-5.html">Probability (5)</a>
+        <a href="./Lecture-6_7.html">Discrete Random Variables (6,7)</a>
+        <!-- <a href="./Lecture-8_part1.html">Hypothesis Testing (8)</a> -->
+        <a href="./Lecture-8_part2.html">Normal Distribution (8)</a>
+        <!-- <a href="./Lecture-9.html">Regression Analysis (9)</a> -->
+        <a href="./Exam-5-9.html">Exams</a>
+        <!-- <a href="./sheets_Exam.html">Sheets Exam</a> -->
+        <a href="./cheat_sheet.html">Cheat Sheet</a>
+        <a href="./Revision.html">Revision</a>
+    </nav>
+
+    <div class="container">
+        <main>
+            <!-- SHEET 1 TIPS -->
+            <section>
+                <h2>📋 Sheet 1: Statistics Basics - Quick Tips</h2>
+
+                <h3>🎯 Key Distinction: Descriptive vs Inferential</h3>
+                <div class="important-box">
+                    <h4>TRICK: Ask "Are we describing what we have OR predicting about the population?"</h4>
+                    <ul>
+                        <li><strong>DESCRIPTIVE:</strong> "Ahmed's average is 85" → We're describing the data we have</li>
+                        <li><strong>INFERENTIAL:</strong> "Ahmed will score higher next time" → We're predicting/inferring</li>
+                        <li><strong>DESCRIPTIVE:</strong> "The difference is 10" → We're describing the data</li>
+                        <li><strong>INFERENTIAL:</strong> "The population mean is..." → We're inferring about population</li>
+                    </ul>
+                </div>
+
+                <h3>📊 Quick Formula Reference</h3>
+                <div class="formula">
+                    <strong>Descriptive Statistics:</strong> Describes data we have<br>
+                    <strong>Inferential Statistics:</strong> Makes predictions about population<br>
+                    <strong>Population:</strong> All elements (goal of study)<br>
+                    <strong>Sample:</strong> Subset of population (what we study)
+                </div>
+
+                <h3>⚡ Common Patterns in Sheet 1</h3>
+                <ul>
+                    <li>✓ Questions about "why take statistics" → Answer is usually TRUE or "All the above"</li>
+                    <li>✓ Questions about definitions → Usually TRUE</li>
+                    <li>✓ Questions about Ahmed vs Hussein → Look for prediction = INFERENTIAL</li>
+                    <li>✓ Questions about averages/differences → Usually DESCRIPTIVE</li>
+                </ul>
+            </section>
+
+            <!-- SHEET 2 TIPS -->
+            <section>
+                <h2>📋 Sheet 2: Data Types & Sampling - Quick Tips</h2>
+
+                <h3>🎯 Data Type Decision Tree</h3>
+                <div class="important-box">
+                    <h4>TRICK: Follow this path to identify data types</h4>
+                    <ol>
+                        <li><strong>Can it be counted?</strong>
+                            <ul>
+                                <li>YES → DISCRETE (number of students, accidents, etc.)</li>
+                                <li>NO → CONTINUOUS (height, weight, temperature)</li>
+                            </ul>
+                        </li>
+                        <li><strong>Is it categorical?</strong>
+                            <ul>
+                                <li>YES → QUALITATIVE (gender, nationality, color)</li>
+                                <li>NO → QUANTITATIVE (age, income, height)</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+
+                <h3>🎯 Measurement Level Decision Tree</h3>
+                <div class="important-box">
+                    <h4>TRICK: Remember "NOIR" - Nominal, Ordinal, Interval, Ratio</h4>
+                    <ul>
+                        <li><strong>NOMINAL:</strong> Categories with NO order (Gender, Nationality, Color)
+                            <ul><li>✓ Can only count frequencies</li></ul>
+                        </li>
+                        <li><strong>ORDINAL:</strong> Categories WITH order (Grades: A, B, C; Satisfaction: Low, Medium, High)
+                            <ul><li>✓ Can rank but no meaningful differences</li></ul>
+                        </li>
+                        <li><strong>INTERVAL:</strong> Numeric with NO true zero (Temperature in Celsius, IQ scores)
+                            <ul><li>✓ Can add/subtract but not multiply/divide</li></ul>
+                        </li>
+                        <li><strong>RATIO:</strong> Numeric WITH true zero (Age, Income, Height, Weight)
+                            <ul><li>✓ Can do all operations including ratios</li></ul>
+                        </li>
+                    </ul>
+                </div>
+
+                <h3>⚡ Quick Identification Tips</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Variable</th>
+                            <th>Type</th>
+                            <th>Level</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Gender</td>
+                            <td>Qualitative</td>
+                            <td>Nominal</td>
+                        </tr>
+                        <tr>
+                            <td>Nationality</td>
+                            <td>Qualitative</td>
+                            <td>Nominal</td>
+                        </tr>
+                        <tr>
+                            <td>Grade (A, B, C)</td>
+                            <td>Qualitative</td>
+                            <td>Ordinal</td>
+                        </tr>
+                        <tr>
+                            <td>Temperature (°C)</td>
+                            <td>Quantitative</td>
+                            <td>Interval</td>
+                        </tr>
+                        <tr>
+                            <td>Income ($)</td>
+                            <td>Quantitative</td>
+                            <td>Ratio</td>
+                        </tr>
+                        <tr>
+                            <td>Number of students</td>
+                            <td>Quantitative</td>
+                            <td>Ratio</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>🎯 Sampling Methods Quick Reference</h3>
+                <div class="important-box">
+                    <h4>TRICK: Match the sampling method to the situation</h4>
+                    <ul>
+                        <li><strong>SIMPLE RANDOM:</strong> Each item has equal chance → Lottery, random numbers</li>
+                        <li><strong>STRATIFIED:</strong> Population divided into groups → Sample from each group proportionally</li>
+                        <li><strong>SYSTEMATIC:</strong> Every kth item → 1 in 10 sampling</li>
+                        <li><strong>JUDGMENT:</strong> Researcher chooses → NOT representative</li>
+                    </ul>
+                </div>
+
+                <h3>⚡ Stratified Sampling Calculation</h3>
+                <div class="formula">
+                    <strong>Formula:</strong> Sample size from stratum = (Stratum size / Total population) × Total sample size<br>
+                    <strong>Example:</strong> 300 females, 500 males, total 800. Want sample of 80.<br>
+                    Females: (300/800) × 80 = 30<br>
+                    Males: (500/800) × 80 = 50
+                </div>
+            </section>
+
+            <!-- SHEET 3 TIPS -->
+            <section>
+                <h2>📋 Sheet 3: Descriptive Statistics - Quick Tips</h2>
+
+                <h3>🎯 Central Tendency Measures</h3>
+                <div class="important-box">
+                    <h4>TRICK: Choose based on data characteristics</h4>
+                    <ul>
+                        <li><strong>MEAN:</strong> Use for symmetric, normal data (no outliers)
+                            <ul><li>✓ All values included</li><li>✗ Affected by outliers</li></ul>
+                        </li>
+                        <li><strong>MEDIAN:</strong> Use for skewed data or with outliers
+                            <ul><li>✓ Not affected by outliers</li><li>✓ Good for ordinal data</li></ul>
+                        </li>
+                        <li><strong>MODE:</strong> Use for categorical/qualitative data
+                            <ul><li>✓ Easy to find</li><li>✓ Not affected by outliers</li></ul>
+                        </li>
+                    </ul>
+                </div>
+
+                <h3>📊 Percentile Quick Reference</h3>
+                <div class="formula">
+                    <strong>Position formula:</strong> Position = (P/100) × (n + 1)<br>
+                    <strong>Common percentiles:</strong><br>
+                    • 25th percentile = Q1 (First Quartile)<br>
+                    • 50th percentile = Q2 = Median<br>
+                    • 75th percentile = Q3 (Third Quartile)<br>
+                    • 10th percentile = First Decile<br>
+                    • 90th percentile = Ninth Decile
+                </div>
+
+                <h3>🎯 Normal Distribution Rule (68-95-99.7)</h3>
+                <div class="important-box">
+                    <h4>TRICK: Memorize this pattern</h4>
+                    <ul>
+                        <li>68% of data within μ ± 1σ</li>
+                        <li>95% of data within μ ± 2σ</li>
+                        <li>99.7% of data within μ ± 3σ</li>
+                    </ul>
+                </div>
+
+                <h3>⚡ Skewness Quick Identification</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Skewness</th>
+                            <th>Relationship</th>
+                            <th>Shape</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Symmetric (Normal)</td>
+                            <td>Mean = Median = Mode</td>
+                            <td>Bell-shaped</td>
+                        </tr>
+                        <tr>
+                            <td>Positive Skew</td>
+                            <td>Mean > Median > Mode</td>
+                            <td>Tail to right</td>
+                        </tr>
+                        <tr>
+                            <td>Negative Skew</td>
+                            <td>Mean < Median < Mode</td>
+                            <td>Tail to left</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>⚡ Z-Score Calculation</h3>
+                <div class="formula">
+                    <strong>Formula:</strong> Z = (X - μ) / σ<br>
+                    <strong>Example:</strong> X = 105, μ = 100, σ = 5<br>
+                    Z = (105 - 100) / 5 = 1
+                </div>
+            </section>
+
+            <!-- SHEET 4 TIPS -->
+            <section>
+                <h2>📋 Sheet 4: Probability - Quick Tips</h2>
+
+                <h3>🎯 Probability Calculation Quick Reference</h3>
+                <div class="important-box">
+                    <h4>TRICK: Use this formula for basic probability</h4>
+                    <ul>
+                        <li><strong>P(A) = Favorable outcomes / Total outcomes</strong></li>
+                        <li><strong>P(A') = 1 - P(A)</strong> (Complement)</li>
+                        <li><strong>P(A or B) = P(A) + P(B) - P(A and B)</strong> (Addition)</li>
+                        <li><strong>P(A and B) = P(A) × P(B)</strong> (Multiplication for independent)</li>
+                    </ul>
+                </div>
+
+                <h3>🎯 Independent vs Dependent Events</h3>
+                <div class="important-box">
+                    <h4>TRICK: Ask "Does first event change second event's probability?"</h4>
+                    <ul>
+                        <li><strong>INDEPENDENT:</strong> NO change
+                            <ul><li>✓ Coin tosses, die rolls, WITH replacement</li><li>✓ P(A|B) = P(A)</li></ul>
+                        </li>
+                        <li><strong>DEPENDENT:</strong> YES change
+                            <ul><li>✓ Drawing WITHOUT replacement, related events</li><li>✓ P(A|B) ≠ P(A)</li></ul>
+                        </li>
+                    </ul>
+                </div>
+
+                <h3>⚡ Common Probability Scenarios</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Scenario</th>
+                            <th>Type</th>
+                            <th>Formula</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Coin toss</td>
+                            <td>Independent</td>
+                            <td>P = 0.5</td>
+                        </tr>
+                        <tr>
+                            <td>Die roll</td>
+                            <td>Independent</td>
+                            <td>P = 1/6</td>
+                        </tr>
+                        <tr>
+                            <td>Card draw (with replacement)</td>
+                            <td>Independent</td>
+                            <td>P = same each time</td>
+                        </tr>
+                        <tr>
+                            <td>Card draw (without replacement)</td>
+                            <td>Dependent</td>
+                            <td>P changes each time</td>
+                        </tr>
+                        <tr>
+                            <td>Two births</td>
+                            <td>Independent</td>
+                            <td>P(both male) = 0.5 × 0.5</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>⚡ Mutually Exclusive Events</h3>
+                <div class="formula">
+                    <strong>TRICK:</strong> If events cannot happen together → Mutually Exclusive<br>
+                    <strong>Example:</strong> Heads and Tails on one coin toss<br>
+                    <strong>Formula:</strong> P(A ∩ B) = 0<br>
+                    <strong>Addition Rule:</strong> P(A or B) = P(A) + P(B)
+                </div>
+            </section>
+
+            <!-- SHEET 6 TIPS -->
+            <section>
+                <h2>📋 Sheet 6: Regression Analysis - Quick Tips</h2>
+
+                <h3>🎯 Regression Model Components</h3>
+                <div class="important-box">
+                    <h4>TRICK: Remember the equation y = β₀ + β₁x + ε</h4>
+                    <ul>
+                        <li><strong>y:</strong> Dependent variable (what we predict)</li>
+                        <li><strong>x:</strong> Independent variable (what we use to predict)</li>
+                        <li><strong>β₀:</strong> Y-intercept (value when x = 0)</li>
+                        <li><strong>β₁:</strong> Slope (change in y per unit x)</li>
+                        <li><strong>ε:</strong> Error term (residual)</li>
+                    </ul>
+                </div>
+
+                <h3>🎯 Correlation Coefficient Interpretation</h3>
+                <div class="important-box">
+                    <h4>TRICK: Remember the range and meaning</h4>
+                    <ul>
+                        <li><strong>-1 ≤ r ≤ +1</strong> (Always between -1 and +1)</li>
+                        <li><strong>r = +1:</strong> Perfect positive correlation</li>
+                        <li><strong>r = -1:</strong> Perfect negative correlation</li>
+                        <li><strong>r = 0:</strong> No correlation</li>
+                        <li><strong>r > 0:</strong> Positive relationship (both increase together)</li>
+                        <li><strong>r < 0:</strong> Negative relationship (one increases, other decreases)</li>
+                    </ul>
+                </div>
+
+                <h3>⚡ R² (Coefficient of Determination)</h3>
+                <div class="formula">
+                    <strong>TRICK:</strong> R² = r² (square of correlation coefficient)<br>
+                    <strong>Meaning:</strong> Percentage of variance in y explained by x<br>
+                    <strong>Example:</strong> R² = 0.64 means 64% of variation explained<br>
+                    <strong>Range:</strong> 0 ≤ R² ≤ 1
+                </div>
+
+                <h3>🎯 Hypothesis Tests in Regression</h3>
+                <div class="important-box">
+                    <h4>TRICK: Know which test for what</h4>
+                    <ul>
+                        <li><strong>T-TEST:</strong> Tests individual parameters (slope, intercept)
+                            <ul><li>✓ H₀: β₁ = 0 (slope not significant)</li></ul>
+                        </li>
+                        <li><strong>F-TEST:</strong> Tests overall model significance
+                            <ul><li>✓ H₀: Model not significant</li></ul>
+                        </li>
+                    </ul>
+                </div>
+
+                <h3>⚡ Regression Interpretation Quick Guide</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Statistic</th>
+                            <th>Meaning</th>
+                            <th>Good Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>R²</td>
+                            <td>% variance explained</td>
+                            <td>Higher is better (>0.7)</td>
+                        </tr>
+                        <tr>
+                            <td>p-value</td>
+                            <td>Significance level</td>
+                            <td>Lower is better (<0.05)</td>
+                        </tr>
+                        <tr>
+                            <td>VIF</td>
+                            <td>Multicollinearity check</td>
+                            <td>Lower is better (<5)</td>
+                        </tr>
+                        <tr>
+                            <td>Slope (β₁)</td>
+                            <td>Change in y per unit x</td>
+                            <td>Depends on context</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>⚡ Common Regression Mistakes to Avoid</h3>
+                <ul>
+                    <li>❌ Confusing dependent and independent variables</li>
+                    <li>❌ Assuming causation from correlation</li>
+                    <li>❌ Ignoring multicollinearity (VIF > 5)</li>
+                    <li>❌ Not checking if assumptions are met</li>
+                    <li>❌ Using regression for non-linear relationships</li>
+                </ul>
+            </section>
+
+            <!-- GENERAL TIPS -->
+            <section>
+                <h2>💡 General Exam Tips & Tricks</h2>
+
+                <h3>🎯 Before the Exam</h3>
+                <ul>
+                    <li>✓ Review all formulas and when to use them</li>
+                    <li>✓ Practice with different examples</li>
+                    <li>✓ Understand concepts, not just memorize</li>
+                    <li>✓ Create flashcards for key definitions</li>
+                    <li>✓ Work through practice problems</li>
+                </ul>
+
+                <h3>🎯 During the Exam</h3>
+                <ul>
+                    <li>✓ Read questions carefully - identify what's being asked</li>
+                    <li>✓ Check assumptions before applying formulas</li>
+                    <li>✓ Show all work - partial credit is possible</li>
+                    <li>✓ Double-check calculations</li>
+                    <li>✓ Interpret results in context of the problem</li>
+                </ul>
+
+                <h3>🎯 Quick Decision Trees</h3>
+                <div class="important-box">
+                    <h4>When you see a question, ask:</h4>
+                    <ol>
+                        <li>Is this about DESCRIBING data or PREDICTING about population?
+                            <ul><li>Describing → Descriptive Statistics</li><li>Predicting → Inferential Statistics</li></ul>
+                        </li>
+                        <li>Is this about DATA TYPES or MEASUREMENT LEVELS?
+                            <ul><li>Discrete/Continuous → Data Type</li><li>Nominal/Ordinal/Interval/Ratio → Measurement Level</li></ul>
+                        </li>
+                        <li>Is this about PROBABILITY or DISTRIBUTIONS?
+                            <ul><li>Likelihood of event → Probability</li><li>Pattern of data → Distribution</li></ul>
+                        </li>
+                        <li>Is this about CORRELATION or REGRESSION?
+                            <ul><li>Strength of relationship → Correlation</li><li>Predicting values → Regression</li></ul>
+                        </li>
+                    </ol>
+                </div>
+
+                <h3>⚡ Common Answer Patterns</h3>
+                <ul>
+                    <li>✓ "All the above" is often correct in multiple choice</li>
+                    <li>✓ True/False questions about definitions are usually TRUE</li>
+                    <li>✓ Questions about "why" are usually comprehensive answers</li>
+                    <li>✓ Look for keywords: "always", "never", "sometimes" - be careful!</li>
+                    <li>✓ If unsure, eliminate obviously wrong answers first</li>
+                </ul>
+
+                <h3>🎯 Formula Cheat Sheet</h3>
+                <div class="formula">
+                    <strong>Probability:</strong><br>
+                    P(A) = Favorable / Total<br>
+                    P(A') = 1 - P(A)<br>
+                    P(A or B) = P(A) + P(B) - P(A and B)<br>
+                    P(A and B) = P(A) × P(B) [if independent]<br><br>
+                    
+                    <strong>Statistics:</strong><br>
+                    Mean = Σx / n<br>
+                    Z = (X - μ) / σ<br>
+                    Position = (P/100) × (n + 1)<br><br>
+                    
+                    <strong>Regression:</strong><br>
+                    y = β₀ + β₁x<br>
+                    R² = r²<br>
+                    -1 ≤ r ≤ +1
+                </div>
+            </section>
+
+            <!-- ADVANCED CALCULATION TIPS -->
+            <section>
+                <h2>🧮 Advanced Calculation Tips</h2>
+
+                <h3>⚡ Z-Score Calculation</h3>
+                <div class="formula">
+                    <strong>Formula:</strong> Z = (X - μ) / σ<br>
+                    <strong>Remember:</strong> σ = √Variance<br>
+                    <strong>Example:</strong> X=105, μ=100, σ=√400=20<br>
+                    Z = (105-100)/20 = 5/20 = 0.25
+                </div>
+
+                <h3>⚡ Weighted Mean Calculation</h3>
+                <div class="formula">
+                    <strong>Formula:</strong> Weighted Mean = Σ(Value × Weight) / Σ(Weight)<br>
+                    <strong>Example:</strong> Grades 60, 75, 80 with weights 2, 3, 4<br>
+                    = (60×2 + 75×3 + 80×4) / (2+3+4)<br>
+                    = (120 + 225 + 320) / 9 = 665/9 = 73.88
+                </div>
+
+                <h3>⚡ Coefficient of Variation</h3>
+                <div class="formula">
+                    <strong>Formula:</strong> CV = (SD / Mean) × 100%<br>
+                    <strong>Use When:</strong> Comparing dispersion with different units<br>
+                    <strong>Example:</strong> SD=50, Mean=200<br>
+                    CV = (50/200) × 100 = 25%
+                </div>
+
+                <h3>⚡ Stratified Sampling Calculation</h3>
+                <div class="formula">
+                    <strong>Formula:</strong> Sample from stratum = (Stratum size / Total) × Total sample<br>
+                    <strong>Example:</strong> 250 govt, 150 private, 100 university (total 500)<br>
+                    Want sample of 200<br>
+                    Govt: (250/500)×200 = 100<br>
+                    Private: (150/500)×200 = 60<br>
+                    University: (100/500)×200 = 40
+                </div>
+
+                <h3>⚡ Systematic Random Sampling</h3>
+                <div class="formula">
+                    <strong>Formula:</strong> k = N/n (sampling interval)<br>
+                    <strong>Process:</strong><br>
+                    1. Calculate k = Total/Sample size<br>
+                    2. Pick random start between 1 and k<br>
+                    3. Add k repeatedly: start, start+k, start+2k, etc.<br>
+                    <strong>Example:</strong> N=500, n=50, k=10, start=4<br>
+                    Select: 4, 14, 24, 34, 44, ...
+                </div>
+
+                <h3>⚡ Percentile Position Calculation</h3>
+                <div class="formula">
+                    <strong>Formula:</strong> Position = (P/100) × (n+1)<br>
+                    <strong>Common Percentiles:</strong><br>
+                    • 25th = Q1 (First Quartile)<br>
+                    • 50th = Q2 = Median<br>
+                    • 75th = Q3 (Third Quartile)<br>
+                    • 10th = First Decile<br>
+                    • 90th = Ninth Decile<br>
+                    <strong>Example:</strong> n=30, find 50th percentile<br>
+                    Position = (50/100) × 31 = 15.5
+                </div>
+            </section>
+
+            <!-- MEASUREMENT LEVEL QUICK GUIDE -->
+            <section>
+                <h2>📏 Measurement Level Quick Guide (NOIR)</h2>
+
+                <h3>🔴 NOMINAL - Categories, No Order</h3>
+                <div class="important-box">
+                    <h4>Characteristics:</h4>
+                    <ul>
+                        <li>Only counting frequencies</li>
+                        <li>No meaningful order</li>
+                        <li>Cannot perform math operations</li>
+                    </ul>
+                    <h4>Examples:</h4>
+                    <ul>
+                        <li>Gender (Male, Female)</li>
+                        <li>Nationality (Egyptian, American, etc.)</li>
+                        <li>Color (Red, Blue, Green)</li>
+                        <li>Religion (Muslim, Christian, etc.)</li>
+                    </ul>
+                </div>
+
+                <h3>🟠 ORDINAL - Categories, With Order</h3>
+                <div class="important-box">
+                    <h4>Characteristics:</h4>
+                    <ul>
+                        <li>Can rank/order</li>
+                        <li>Differences not meaningful</li>
+                        <li>Cannot perform math operations</li>
+                    </ul>
+                    <h4>Examples:</h4>
+                    <ul>
+                        <li>Grades (A, B, C, D, F)</li>
+                        <li>Satisfaction (Very Satisfied, Satisfied, Neutral, Dissatisfied)</li>
+                        <li>Education Level (High School, Bachelor, Master, PhD)</li>
+                        <li>Rank (1st, 2nd, 3rd)</li>
+                    </ul>
+                </div>
+
+                <h3>🟡 INTERVAL - Numeric, No True Zero</h3>
+                <div class="important-box">
+                    <h4>Characteristics:</h4>
+                    <ul>
+                        <li>Can add/subtract</li>
+                        <li>No true zero point</li>
+                        <li>Cannot multiply/divide meaningfully</li>
+                    </ul>
+                    <h4>Examples:</h4>
+                    <ul>
+                        <li>Temperature in Celsius (0°C is arbitrary)</li>
+                        <li>IQ Scores</li>
+                        <li>Calendar Years</li>
+                    </ul>
+                </div>
+
+                <h3>🟢 RATIO - Numeric, True Zero</h3>
+                <div class="important-box">
+                    <h4>Characteristics:</h4>
+                    <ul>
+                        <li>Can do all operations</li>
+                        <li>True zero point exists</li>
+                        <li>Ratios are meaningful</li>
+                    </ul>
+                    <h4>Examples:</h4>
+                    <ul>
+                        <li>Age (0 = not born yet)</li>
+                        <li>Income in dollars (0 = no income)</li>
+                        <li>Height in cm (0 = no height)</li>
+                        <li>Weight in kg (0 = no weight)</li>
+                        <li>Number of students (0 = no students)</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- FINAL CHECKLIST -->
+            <section>
+                <h2>✅ Final Exam Checklist</h2>
+                <div class="important-box">
+                    <h4>Before You Start, Make Sure You Know:</h4>
+                    <ul>
+                        <li>☐ Difference between descriptive and inferential statistics</li>
+                        <li>☐ Data types: discrete vs continuous</li>
+                        <li>☐ Measurement levels: NOIR (Nominal, Ordinal, Interval, Ratio)</li>
+                        <li>☐ Sampling methods and when to use each</li>
+                        <li>☐ Central tendency measures: mean, median, mode</li>
+                        <li>☐ Normal distribution rule (68-95-99.7)</li>
+                        <li>☐ Probability formulas and rules</li>
+                        <li>☐ Independent vs dependent events</li>
+                        <li>☐ Correlation coefficient range and interpretation</li>
+                        <li>☐ Regression model components</li>
+                        <li>☐ T-test vs F-test purposes</li>
+                        <li>☐ How to interpret R² and p-values</li>
+                        <li>☐ Z-score, Weighted Mean, CV calculations</li>
+                        <li>☐ Stratified and Systematic sampling</li>
+                        <li>☐ Percentile position calculations</li>
+                    </ul>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <footer>
+        <p>Faculty of Graduate Studies for Statistical Research, Cairo University</p>
+    </footer>
+</body>
+</html>
